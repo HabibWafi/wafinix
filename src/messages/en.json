@@ -32,9 +32,125 @@
     "madeWith": "Made with warmth in Indonesia"
   },
   "home": {
-    "badge": "Stage 3 — layout & decoration ready",
-    "blurb": "Websites, systems, and apps for your business — from small businesses to enterprises. The full site is under construction.",
-    "since": "For Indonesia & the world",
-    "projects": "Projects delivered"
+    "hero": {
+      "badge": "Software house • Indonesia & Global",
+      "title": "Digital products that help your business <hl>grow</hl>",
+      "subtitle": "Wafinix builds websites, systems, and apps — from company profiles to ERP, with orders & payments recorded automatically. For small businesses to enterprises, in Indonesia and worldwide.",
+      "ctaPrimary": "Start a Project",
+      "ctaSecondary": "Explore Services",
+      "scroll": "Scroll to explore"
+    },
+    "services": {
+      "eyebrow": "Services",
+      "title": "One team for all your digital needs",
+      "subtitle": "From the first landing page to the system that runs your operations — we design, build, and maintain it.",
+      "cta": "See all services"
+    },
+    "tech": {
+      "eyebrow": "Technology",
+      "title": "Built with the right tools"
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Trusted across industries",
+      "subtitle": "Every industry has unique needs. We've already shaped the solutions.",
+      "hint": "Scroll to browse"
+    },
+    "global": {
+      "eyebrow": "Reach",
+      "title": "From <hl>Indonesia</hl> to the world",
+      "subtitle": "Bilingual websites, prices in Rupiah or USD, and both local and international payments — your business is ready to serve customers anywhere.",
+      "points": [
+        "Bilingual Indonesian & English with one click",
+        "Local payments (QRIS, transfer, e-wallet) & international (cards, crypto)",
+        "Fast performance with a global CDN"
+      ]
+    },
+    "process": {
+      "eyebrow": "How We Work",
+      "title": "We don't just start coding",
+      "subtitle": "Every project begins with thorough planning — so the result is focused, consistent, and easy to grow.",
+      "steps": [
+        {
+          "title": "Consultation & Discovery",
+          "desc": "We understand your business goals, target users, and needs before a single line is written."
+        },
+        {
+          "title": "Planning & Documents",
+          "desc": "A PRD, system architecture, and database design come first — not just build-on-request."
+        },
+        {
+          "title": "UI/UX Design",
+          "desc": "Warm, easy-to-use mockups and prototypes, approved before development begins."
+        },
+        {
+          "title": "Development",
+          "desc": "Incremental coding with testing at every step, plus transparent progress updates."
+        },
+        {
+          "title": "Launch & Support",
+          "desc": "Deployment, training for your team, and maintenance to keep everything running smoothly."
+        }
+      ]
+    },
+    "stats": {
+      "items": [
+        { "value": 120, "suffix": "+", "label": "Projects delivered" },
+        { "value": 50, "suffix": "+", "label": "Happy clients" },
+        { "value": 9, "suffix": "", "label": "Industries served" },
+        { "value": 100, "suffix": "%", "label": "Transactions auto-logged" }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "What they say",
+      "note": "Illustrative — to be replaced with real client testimonials.",
+      "items": [
+        {
+          "quote": "The POS generates daily reports automatically. Now we know our stock and revenue exactly, no manual counting.",
+          "name": "Rani",
+          "role": "Owner, Kopi Nusantara"
+        },
+        {
+          "quote": "Our booking site leveled up. Guests reserve a room and pay right away, and the data stays tidy.",
+          "name": "Bagus",
+          "role": "Manager, Amara Hotel"
+        },
+        {
+          "quote": "What sets them apart is starting from documents. Our needs were truly understood before any work began.",
+          "name": "Hendra",
+          "role": "Director, EximTrade"
+        }
+      ]
+    },
+    "security": {
+      "eyebrow": "Security",
+      "title": "Secure from the foundation",
+      "subtitle": "Transaction security is our highest priority — not an afterthought.",
+      "items": [
+        {
+          "title": "Encryption & HTTPS",
+          "desc": "End-to-end SSL and strict security headers protect every connection."
+        },
+        {
+          "title": "OWASP protection",
+          "desc": "Input validation, anti-XSS, and rate limiting following OWASP standards."
+        },
+        {
+          "title": "Verified payments",
+          "desc": "Signed webhooks with amount matching — statuses can't be faked."
+        },
+        {
+          "title": "Audit & backup",
+          "desc": "Every key action is logged; data is backed up regularly and recoverable."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to start your project?",
+      "subtitle": "Tell us what you need — the first consultation is free, no strings attached.",
+      "primary": "Start a Project",
+      "secondary": "Chat on WhatsApp"
+    }
   }
 }

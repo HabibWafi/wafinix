@@ -37,18 +37,20 @@
 - [x] Home placeholder memakai semua komponen (verifikasi runtime); build & lint lolos; cek desktop+mobile+ID/EN
 - [x] Commit
 
-## ⬜ Tahap 4 — Home
-- [ ] Hero: teks stagger + HeroScene 3D (mouse + scroll) + fallback
-- [ ] Section layanan ringkas (7 kartu)
-- [ ] Marquee tech stack
-- [ ] Horizontal scroll 9 industri (GSAP)
-- [ ] Globe 3D "Indonesia & Global"
-- [ ] Pinned scrollytelling "Proses Kami" (5 langkah)
-- [ ] Stats count-up, testimoni, "Keamanan Standar Kami", CTA akhir
-- [ ] Dua bahasa lengkap; commit
+## ✅ Tahap 4 — Home (selesai 2026-06-13)
+- [x] Hero: teks reveal + rich title (underline coretan) + **HeroScene 3D R3F** (mouse-follow + scroll scale/opacity) + fallback statis
+- [x] ServicesPreview (7 kartu dari data/services.ts)
+- [x] TechMarquee (data/techstack.ts → techMarquee)
+- [x] **Horizontal scroll 9 industri** — Framer `useScroll`+sticky (BUKAN GSAP, lebih andal dgn Lenis) + fallback overflow-x
+- [x] **Globe 3D** "Dari Indonesia untuk dunia" (dotted sphere + arc Jakarta→dunia) + fallback SVG
+- [x] **Pinned scrollytelling "Proses Kami"** (5 langkah, progress bar, crossfade) — Framer sticky + fallback list
+- [x] Stats count-up (espresso), Testimonials (ilustrasi), Security "Aman sejak fondasi", FinalCTA + WhatsApp
+- [x] SectionDivider antar batas warna; semua reduced-motion aware
+- [x] Dua bahasa lengkap (t.rich + t.raw arrays); build + lint bersih; verifikasi desktop+mobile, ID+EN, 3D WebGL jalan tanpa error console
+- [x] Commit
 
 ## ⬜ Tahap 5 — Layanan & Solusi
-- [ ] data/services.ts, industries.ts, techstack.ts
+- [x] data/services.ts (7), industries.ts (9), techstack.ts (kategori + techMarquee) — **sudah dibuat di Tahap 4**; bisa diperluas bila perlu
 - [ ] /layanan: 7 kategori + grid tech stack terkategori
 - [ ] /solusi: 8 industri (masing-masing: masalah → solusi Wafinix → fitur → CTA)
 - [ ] Dua bahasa; commit

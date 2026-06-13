@@ -32,9 +32,125 @@
     "madeWith": "Dibuat dengan kehangatan di Indonesia"
   },
   "home": {
-    "badge": "Tahap 3 — layout & dekorasi siap",
-    "blurb": "Website, sistem, dan aplikasi untuk bisnis Anda — dari UMKM sampai enterprise. Situs lengkap sedang dibangun.",
-    "since": "Untuk Indonesia & dunia",
-    "projects": "Proyek selesai"
+    "hero": {
+      "badge": "Software house • Indonesia & Global",
+      "title": "Solusi digital yang bikin bisnis Anda <hl>tumbuh</hl>",
+      "subtitle": "Wafinix membangun website, sistem, dan aplikasi — dari company profile sampai ERP, dengan order & pembayaran yang tercatat otomatis. Untuk UMKM sampai enterprise, di Indonesia dan dunia.",
+      "ctaPrimary": "Mulai Proyek",
+      "ctaSecondary": "Lihat Layanan",
+      "scroll": "Gulir untuk menjelajah"
+    },
+    "services": {
+      "eyebrow": "Layanan",
+      "title": "Satu tim untuk semua kebutuhan digital Anda",
+      "subtitle": "Dari halaman pertama sampai sistem yang menjalankan operasional — kami rancang, bangun, dan rawat.",
+      "cta": "Lihat semua layanan"
+    },
+    "tech": {
+      "eyebrow": "Teknologi",
+      "title": "Dibangun dengan tools yang tepat"
+    },
+    "industries": {
+      "eyebrow": "Industri",
+      "title": "Dipercaya lintas bidang usaha",
+      "subtitle": "Setiap industri punya kebutuhan unik. Kami sudah menyiapkan solusinya.",
+      "hint": "Gulir untuk menelusuri"
+    },
+    "global": {
+      "eyebrow": "Jangkauan",
+      "title": "Dari <hl>Indonesia</hl> untuk dunia",
+      "subtitle": "Website bilingual, harga dalam Rupiah atau USD, dan pembayaran lokal maupun internasional — bisnis Anda siap melayani pelanggan di mana saja.",
+      "points": [
+        "Bilingual Indonesia & Inggris dengan satu klik",
+        "Pembayaran lokal (QRIS, transfer, e-wallet) & internasional (kartu, crypto)",
+        "Performa cepat dengan CDN global"
+      ]
+    },
+    "process": {
+      "eyebrow": "Cara Kerja",
+      "title": "Kami tidak langsung coding",
+      "subtitle": "Setiap proyek dimulai dari perancangan yang matang — supaya hasilnya terarah, konsisten, dan mudah dikembangkan.",
+      "steps": [
+        {
+          "title": "Konsultasi & Discovery",
+          "desc": "Kami pahami tujuan bisnis, target pengguna, dan kebutuhan Anda sebelum apa pun ditulis."
+        },
+        {
+          "title": "Perancangan & Dokumen",
+          "desc": "PRD, arsitektur sistem, dan desain database disusun lebih dulu — bukan sekadar by request."
+        },
+        {
+          "title": "Desain UI/UX",
+          "desc": "Mockup dan prototipe yang hangat dan mudah dipakai, disetujui sebelum dikembangkan."
+        },
+        {
+          "title": "Pengembangan",
+          "desc": "Coding bertahap dengan pengujian di setiap langkah, plus update progres yang transparan."
+        },
+        {
+          "title": "Peluncuran & Dukungan",
+          "desc": "Deploy, pelatihan tim Anda, dan pemeliharaan agar sistem terus berjalan mulus."
+        }
+      ]
+    },
+    "stats": {
+      "items": [
+        { "value": 120, "suffix": "+", "label": "Proyek selesai" },
+        { "value": 50, "suffix": "+", "label": "Klien puas" },
+        { "value": 9, "suffix": "", "label": "Industri dilayani" },
+        { "value": 100, "suffix": "%", "label": "Transaksi tercatat otomatis" }
+      ]
+    },
+    "testimonials": {
+      "eyebrow": "Testimoni",
+      "title": "Apa kata mereka",
+      "note": "Ilustrasi — akan diganti testimoni klien nyata.",
+      "items": [
+        {
+          "quote": "Sistem kasirnya bikin laporan harian otomatis. Sekarang kami tahu persis stok dan omzet tanpa repot hitung manual.",
+          "name": "Rani",
+          "role": "Pemilik, Kopi Nusantara"
+        },
+        {
+          "quote": "Website booking kami naik kelas. Tamu memesan kamar dan langsung bayar, datanya rapi semua.",
+          "name": "Bagus",
+          "role": "Manajer, Amara Hotel"
+        },
+        {
+          "quote": "Yang membedakan, mereka mulai dari dokumen. Kebutuhan kami benar-benar dipahami sebelum dikerjakan.",
+          "name": "Hendra",
+          "role": "Direktur, EximTrade"
+        }
+      ]
+    },
+    "security": {
+      "eyebrow": "Keamanan",
+      "title": "Aman sejak fondasi",
+      "subtitle": "Keamanan transaksi adalah prioritas tertinggi kami — bukan tambahan di akhir.",
+      "items": [
+        {
+          "title": "Enkripsi & HTTPS",
+          "desc": "SSL menyeluruh dan security headers ketat untuk melindungi setiap koneksi."
+        },
+        {
+          "title": "Proteksi OWASP",
+          "desc": "Validasi input, anti-XSS, dan rate limiting mengikuti standar OWASP."
+        },
+        {
+          "title": "Pembayaran terverifikasi",
+          "desc": "Webhook dengan tanda tangan dan pencocokan nominal — status tak bisa dipalsukan."
+        },
+        {
+          "title": "Audit & backup",
+          "desc": "Setiap aksi penting tercatat, data dicadangkan rutin dan dapat dipulihkan."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Siap memulai proyek Anda?",
+      "subtitle": "Ceritakan kebutuhan Anda — konsultasi awal gratis, tanpa kewajiban.",
+      "primary": "Mulai Proyek",
+      "secondary": "Konsultasi via WhatsApp"
+    }
   }
 }
