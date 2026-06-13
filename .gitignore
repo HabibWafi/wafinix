@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# installed agent-skill tooling (reinstall via: npx impeccable skills install -y)
+/.claude/skills/
+
 # vercel
 .vercel
 

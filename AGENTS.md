@@ -28,6 +28,7 @@ Website software house Wafinix: company profile + sistem order/pembayaran + admi
 | DESIGN-SPEC.md | Tokens warna/font, aturan dekorasi, motion guidelines, spec 3D |
 | CONTENT-GUIDE.md | Tone ID/EN, lokasi edit konten, placeholder yang harus diganti |
 | ROADMAP.md / TESTING.md / PROGRESS.md | Fase rilis / checklist QA / status eksekusi |
+| DESIGN-MOTION-PLAYBOOK.md | Cara pakai skill desain/motion (emil-design-eng, taste family, impeccable) untuk UI polished & "hidup" |
 
 ## Konvensi penting
 - **Semua teks UI lewat next-intl** (`src/messages/id.json` + `en.json`) — tidak ada string hardcoded di komponen; data terstruktur di `src/data/*.ts` dengan field `{ id, en }`
@@ -37,3 +38,4 @@ Website software house Wafinix: company profile + sistem order/pembayaran + admi
 - Dekorasi: komponen dari `src/components/decor/`, maks 2–3 per section, `aria-hidden`
 - Komentar & nama variabel bahasa Inggris; copy website bahasa ID+EN
 - Keamanan transaksi = prioritas tertinggi: lihat checklist `ARCHITECTURE.md` — jangan dilonggarkan demi kecepatan
+- **UI/motion**: ikuti `docs/DESIGN-MOTION-PLAYBOOK.md` — easing kustom (bukan default lembek), reduced-motion wajib, hindari "AI slop bans"; untuk polish lintas section pakai `/impeccable polish` & `detect.mjs`
