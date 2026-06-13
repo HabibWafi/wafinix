@@ -28,10 +28,7 @@ export function ProcessScrolly() {
 
   const Heading = (
     <div className="text-center">
-      <p className="text-sm font-semibold uppercase tracking-wider text-terracotta">
-        {t("eyebrow")}
-      </p>
-      <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">{t("title")}</h2>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl">{t("title")}</h2>
       <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-cocoa">
         {t("subtitle")}
       </p>

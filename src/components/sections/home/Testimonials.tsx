@@ -13,10 +13,7 @@ export function Testimonials() {
     <section className="bg-cream py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-terracotta">
-            {t("eyebrow")}
-          </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">{t("title")}</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl">{t("title")}</h2>
         </Reveal>
 
         <Stagger className="mt-12 grid gap-5 md:grid-cols-3">

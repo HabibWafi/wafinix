@@ -28,7 +28,7 @@ export function ServicesPreview() {
             <StaggerItem key={s.slug}>
               <Link
                 href="/layanan"
-                className="group flex h-full flex-col rounded-3xl border border-cocoa/10 bg-warm-white p-6 transition-all hover:-translate-y-1.5 hover:border-terracotta/30 hover:shadow-[0_12px_40px_-12px_rgba(200,98,62,0.35)]"
+                className="group flex h-full flex-col rounded-3xl border border-cocoa/10 bg-warm-white p-6 transition duration-200 hover:-translate-y-1.5 hover:border-terracotta/30 hover:shadow-[0_12px_40px_-12px_rgba(200,98,62,0.35)]"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-terracotta/10 text-terracotta transition-colors group-hover:bg-terracotta group-hover:text-warm-white">
                   <s.icon className="h-6 w-6" />

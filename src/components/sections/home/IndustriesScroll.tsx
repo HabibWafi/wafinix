@@ -15,10 +15,7 @@ function Header() {
   const t = useTranslations("home.industries");
   return (
     <div className="mx-auto max-w-7xl">
-      <p className="text-sm font-semibold uppercase tracking-wider text-amber">
-        {t("eyebrow")}
-      </p>
-      <h2 className="mt-3 max-w-2xl text-3xl text-cream sm:text-4xl lg:text-5xl">
+      <h2 className="max-w-2xl text-3xl text-cream sm:text-4xl lg:text-5xl">
         {t("title")}
       </h2>
       <p className="mt-4 max-w-xl text-lg leading-relaxed text-cream/70">

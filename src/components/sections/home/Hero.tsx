@@ -80,7 +80,7 @@ export function Hero() {
               <MagneticButton>
                 <Link
                   href="/order"
-                  className="group inline-flex items-center gap-2 rounded-full bg-terracotta px-7 py-3.5 font-semibold text-warm-white shadow-md transition-colors hover:bg-terracotta-light"
+                  className="group inline-flex items-center gap-2 rounded-full bg-terracotta px-7 py-3.5 font-semibold text-warm-white shadow-md transition hover:bg-terracotta-light hover:shadow-lg active:scale-[0.97]"
                 >
                   {t("ctaPrimary")}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -88,7 +88,7 @@ export function Hero() {
               </MagneticButton>
               <Link
                 href="/layanan"
-                className="inline-flex items-center rounded-full border border-cocoa/20 px-7 py-3.5 font-semibold text-espresso transition-colors hover:border-terracotta hover:text-terracotta"
+                className="inline-flex items-center rounded-full border border-cocoa/20 px-7 py-3.5 font-semibold text-espresso transition hover:border-terracotta hover:text-terracotta active:scale-[0.97]"
               >
                 {t("ctaSecondary")}
               </Link>

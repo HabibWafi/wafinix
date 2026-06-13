@@ -43,10 +43,7 @@ export function GlobeSection() {
     <section className="relative overflow-hidden bg-cream py-20 lg:py-28">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2 lg:px-8">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-wider text-terracotta">
-            {t("eyebrow")}
-          </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl">
             {t.rich("title", {
               hl: (chunks: ReactNode) => (
                 <span className="text-terracotta">{chunks}</span>
