@@ -20,22 +20,27 @@ export function TechGrid() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {techCategories.map((cat) => (
             <Reveal key={cat.label.en}>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-terracotta">
-                {pick(cat.label, locale)}
-              </h3>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {cat.items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-full border border-cocoa/15 bg-cream px-3 py-1 text-sm text-cocoa"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="flex h-full flex-col rounded-2xl border border-cocoa/10 bg-cream p-6">
+                <div className="flex items-baseline justify-between gap-2 border-b border-cocoa/10 pb-3">
+                  <h3 className="font-display text-lg font-semibold text-espresso">
+                    {pick(cat.label, locale)}
+                  </h3>
+                  <span className="text-xs text-cocoa/40">{cat.items.length}</span>
+                </div>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {cat.items.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-full border border-cocoa/15 bg-sand px-3 py-1 text-sm text-cocoa"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>

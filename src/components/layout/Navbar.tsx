@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { navLinks } from "@/data/site";
 import { Logo } from "./Logo";
@@ -13,6 +13,7 @@ export function Navbar() {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -76,11 +77,11 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 flex flex-col bg-cream px-6 py-5 lg:hidden"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[60] flex h-[100dvh] flex-col overflow-y-auto bg-cream px-6 py-5 lg:hidden"
+            initial={reduce ? false : { y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={reduce ? { opacity: 0 } : { y: "-100%" }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center justify-between">
               <Logo variant="horizontal" className="h-8 w-auto" />
