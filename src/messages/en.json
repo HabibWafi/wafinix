@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "Wafinix — Website, System & App Development",
+    "description": "A software house for small businesses to enterprises: websites, POS & ERP systems, integrated orders & payments, AI & chatbots. Indonesia & global."
+  },
+  "nav": {
+    "services": "Services",
+    "solutions": "Solutions",
+    "pricing": "Pricing",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Start a Project",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "id": "Indonesia",
+    "en": "English"
+  },
+  "footer": {
+    "tagline": "Build. Transform. Grow.",
+    "blurb": "We help your business grow with thoughtfully crafted websites, systems, and apps — from small businesses to enterprises, for Indonesia and the world.",
+    "explore": "Explore",
+    "legal": "Legal",
+    "connect": "Connect",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "license": "License & SLA",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with warmth in Indonesia"
+  },
+  "home": {
+    "badge": "Stage 3 — layout & decoration ready",
+    "blurb": "Websites, systems, and apps for your business — from small businesses to enterprises. The full site is under construction.",
+    "since": "For Indonesia & the world",
+    "projects": "Projects delivered"
+  }
+}

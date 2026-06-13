@@ -25,6 +25,35 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Decorative keyframes — see src/components/decor & motion. All paused under
+   prefers-reduced-motion via the global rule at the bottom of this file. */
+@keyframes wfx-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes wfx-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--wfx-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--wfx-rot, 0deg));
+  }
+}
+
+.wfx-marquee-track {
+  animation: wfx-marquee var(--wfx-duration, 32s) linear infinite;
+}
+
+.wfx-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 h1,
 h2,
 h3,

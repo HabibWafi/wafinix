@@ -26,14 +26,16 @@
 - [x] Hapus aset SVG bawaan create-next-app; build & lint lolos
 - [x] Commit
 
-## ⬜ Tahap 3 — Layout & Dekorasi
-- [ ] next-intl: routing /id /en, messages/id.json en.json, middleware
-- [ ] Navbar (transparan→solid, language switcher, mobile menu)
-- [ ] Footer (navigasi, kontak placeholder, legal, sosmed)
-- [ ] PageTransition wrapper + Lenis smooth scroll provider
-- [ ] Decor: Blobs, TopoLines, Grain, FloatingShapes, HandDrawn, SectionDivider, OutlineText
-- [ ] Motion utils: Reveal, Stagger, CountUp, Marquee, MagneticButton, ParallaxLayer
-- [ ] Commit
+## ✅ Tahap 3 — Layout & Dekorasi (selesai 2026-06-13)
+- [x] next-intl: routing /id /en (localePrefix always), request.ts, navigation.ts, **proxy.ts** (Next 16, bukan middleware.ts), plugin di next.config, messages id/en
+- [x] **Multi-root layout**: `src/app/[locale]/layout.tsx` jadi root (punya `<html lang={locale}>`) — TIDAK ada `src/app/layout.tsx`. lang benar per locale. Admin/demo nanti dapat root layout sendiri (Tahap 7/11)
+- [x] Navbar (transparan→solid saat scroll, language switcher ID/EN, mobile menu full-screen)
+- [x] Footer (brand+blurb, explore/legal/connect, sosmed, dari data/site.ts)
+- [x] SmoothScroll (Lenis, mati saat reduced-motion) + PageTransition (template.tsx, enter per-navigasi)
+- [x] Decor: Grain, Blobs, TopoLines, FloatingShapes, HandDrawn, SectionDivider, OutlineText
+- [x] Motion utils: Reveal, Stagger, CountUp, Marquee, MagneticButton, ParallaxLayer
+- [x] Home placeholder memakai semua komponen (verifikasi runtime); build & lint lolos; cek desktop+mobile+ID/EN
+- [x] Commit
 
 ## ⬜ Tahap 4 — Home
 - [ ] Hero: teks stagger + HeroScene 3D (mouse + scroll) + fallback
@@ -102,3 +104,6 @@
 - 2026-06-13: CLAUDE.md bawaan scaffold berisi include `@AGENTS.md` — panduan proyek ditulis di AGENTS.md.
 - 2026-06-13: **Higgsfield generate_image OUT OF CREDIT** (workspace free, 0 kredit). Canva `generate-design` jalan tapi user akhirnya pakai logo desain sendiri. Untuk Tahap 4 (3D/ilustrasi): andalkan R3F prosedural + SVG kode, JANGAN andalkan generate gambar AI kecuali user top-up. User bilang akan desain aset sendiri & kasih ke kita bila perlu.
 - 2026-06-13: Logo = set lengkap dari user di `public/brand/`. Background removal pakai `scripts/process-logo.ps1` (System.Drawing flood-fill dari tepi — preserve elemen cream interior). Jalankan ulang script ini kalau user ganti file logo.
+- 2026-06-13 (Tahap 3): **Gotcha cache dev server** — menghapus/memindah root layout TIDAK ter-hot-reload bersih (muncul error "two <html>"). Selalu RESTART dev server setelah ubah struktur layout/root. Production build bersih membuktikan source benar.
+- 2026-06-13 (Tahap 3): **Typing motion/react** — ease cubic-bezier `[0.22,1,0.36,1]` di dalam objek `Variants` konstan harus dianotasi `const x: Variants = {...}` (inline di prop motion aman karena contextual typing). Dan jangan `setState` sinkron di body `useEffect` (aturan eslint react-hooks/set-state-in-effect) — pakai derived value.
+- 2026-06-13 (Tahap 3): Screenshot preview kadang timeout karena loop RAF Lenis; verifikasi via `preview_eval`/DOM tetap andal.

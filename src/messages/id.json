@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "Wafinix — Jasa Pembuatan Website, Sistem & Aplikasi",
+    "description": "Software house untuk UMKM hingga enterprise: website, sistem kasir & ERP, order & pembayaran terintegrasi, AI & chatbot. Indonesia & global."
+  },
+  "nav": {
+    "services": "Layanan",
+    "solutions": "Solusi",
+    "pricing": "Harga",
+    "portfolio": "Portofolio",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "cta": "Pesan Sekarang",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu"
+  },
+  "languageSwitcher": {
+    "label": "Bahasa",
+    "id": "Indonesia",
+    "en": "English"
+  },
+  "footer": {
+    "tagline": "Build. Transform. Grow.",
+    "blurb": "Kami bantu bisnis Anda tumbuh lewat website, sistem, dan aplikasi yang dirancang matang — dari UMKM sampai enterprise, untuk pasar Indonesia dan global.",
+    "explore": "Jelajahi",
+    "legal": "Legal",
+    "connect": "Terhubung",
+    "terms": "Syarat & Ketentuan",
+    "privacy": "Kebijakan Privasi",
+    "license": "Lisensi & SLA",
+    "rights": "Hak cipta dilindungi.",
+    "madeWith": "Dibuat dengan kehangatan di Indonesia"
+  },
+  "home": {
+    "badge": "Tahap 3 — layout & dekorasi siap",
+    "blurb": "Website, sistem, dan aplikasi untuk bisnis Anda — dari UMKM sampai enterprise. Situs lengkap sedang dibangun.",
+    "since": "Untuk Indonesia & dunia",
+    "projects": "Proyek selesai"
+  }
+}
