@@ -56,11 +56,16 @@
 - [x] **Perbaikan UI (dari feedback mobile user)**: menu mobile jadi sheet opaque slide-dari-atas (z-60, h-100dvh) — fix transparan; IndustriesScroll Home dari scroll-jack horizontal → grid responsif natural; TechGrid /layanan jadi panel kategori berbatas jelas
 - Catatan: polish Home (eyebrow cadence, :active, transition) + impeccable init (PRODUCT.md/DESIGN.md) sudah di commit 39026f6. Preview lokal sempat tidak stabil (port 3000 ditahan proses lain) — verifikasi via build SSG + URL produksi.
 
-## ⬜ Tahap 6 — Harga
-- [ ] data/pricing.ts: 4 tier, sub-paket per layanan, add-on, IDR+USD
-- [ ] /harga: kartu tier, toggle kategori, tabel dokumen per tier, fitur keamanan per tier
-- [ ] FAQ harga + JSON-LD FAQPage
-- [ ] CTA → /order?paket=slug; commit
+## ✅ Tahap 6 — Harga
+- [x] data/pricing.ts: 4 tier (Personal/UMKM/Bisnis/Enterprise) + add-on, display IDR+USD per locale
+- [x] /harga: kartu tier (Bisnis highlighted), dokumen per tier, fitur keamanan per tier, add-on, CTA → /order (consult → /kontak)
+- [ ] FAQ harga + JSON-LD FAQPage (ditunda — opsional, bisa di finishing)
+- [x] Build SSG dua bahasa; commit
+
+## ✅ Halaman ringan (didahulukan untuk hapus 404 navbar; bagian dari Tahap 12)
+- [x] /tentang (cerita + nilai + CTA), /kontak (WhatsApp/email/lokasi/jam + CTA), legal: /legal/{syarat-ketentuan, kebijakan-privasi, lisensi-dan-sla} (LegalDoc + disclaimer "review hukum")
+- [x] PageHeader & CTABand reusable dipakai ulang; build SSG dua bahasa
+- Sisa 404 navbar/footer kini hanya /order & /portofolio (Tahap 7–9)
 
 ## ⬜ Tahap 7 — Portofolio A
 - [ ] data/portfolio.ts (8 entri)

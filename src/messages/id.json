@@ -174,5 +174,90 @@
     "ctaSubtitle": "Kami terbiasa membangun solusi custom. Ceritakan kebutuhan spesifik Anda.",
     "ctaPrimary": "Mulai Proyek",
     "ctaSecondary": "Konsultasi via WhatsApp"
+  },
+  "harga": {
+    "title": "Harga yang transparan",
+    "subtitle": "Empat tingkat paket untuk kebutuhan berbeda. Harga indikatif — disesuaikan dengan lingkup proyek Anda.",
+    "documentsLabel": "Dokumen yang Anda terima",
+    "securityLabel": "Keamanan",
+    "popular": "Paling populer",
+    "ctaOrder": "Pesan Paket",
+    "ctaConsult": "Konsultasi Gratis",
+    "addOnsTitle": "Tambahan (add-on)",
+    "addOnsSubtitle": "Lengkapi paket Anda kapan saja.",
+    "note": "Harga belum termasuk pajak bila berlaku. Hubungi kami untuk penawaran pasti.",
+    "ctaTitle": "Masih bingung pilih paket?",
+    "ctaSubtitle": "Ceritakan kebutuhan Anda — kami bantu pilih yang paling pas, gratis.",
+    "ctaPrimary": "Mulai Proyek",
+    "ctaSecondary": "Konsultasi via WhatsApp"
+  },
+  "tentang": {
+    "title": "Kami bangun seperti membangun untuk diri sendiri",
+    "subtitle": "Wafinix lahir dari keyakinan bahwa software yang baik dimulai dari perancangan yang matang — bukan sekadar coding.",
+    "storyTitle": "Cerita kami",
+    "story": [
+      "Nama Wafinix terinspirasi dari phoenix — burung yang bangkit dan bertransformasi. Itulah yang kami lakukan untuk bisnis: mengubah proses manual jadi sistem digital yang hidup dan tumbuh.",
+      "Kami melayani UMKM sampai enterprise, di Indonesia dan global. Setiap proyek dimulai dari dokumen perancangan supaya hasilnya terarah, konsisten, dan mudah dikembangkan."
+    ],
+    "valuesTitle": "Yang kami pegang",
+    "values": [
+      { "title": "Buktikan, jangan klaim", "desc": "Situs ini sendiri portofolio kemampuan kami — motion, 3D, dan keamanannya nyata." },
+      { "title": "Hangat & manusiawi", "desc": "Teknologi boleh canggih, tapi pengalaman harus nyaman dan mudah didekati." },
+      { "title": "Berbasis dokumen", "desc": "Kami merancang sebelum mengoding — PRD, arsitektur, desain — supaya terarah." },
+      { "title": "Aman sejak fondasi", "desc": "Keamanan transaksi adalah prioritas tertinggi, bukan tambahan di akhir." }
+    ],
+    "ctaTitle": "Mari bangun sesuatu bersama",
+    "ctaSubtitle": "Ceritakan ide Anda — konsultasi awal gratis.",
+    "ctaPrimary": "Mulai Proyek",
+    "ctaSecondary": "Konsultasi via WhatsApp"
+  },
+  "kontak": {
+    "title": "Hubungi kami",
+    "subtitle": "Punya proyek atau pertanyaan? Kami biasanya membalas di hari yang sama.",
+    "whatsappLabel": "WhatsApp",
+    "whatsappCta": "Chat via WhatsApp",
+    "emailLabel": "Email",
+    "addressLabel": "Lokasi",
+    "hoursLabel": "Jam kerja",
+    "hours": "Senin–Jumat, 09.00–17.00 WIB",
+    "formNote": "Form pemesanan lengkap tersedia di halaman Pesan."
+  },
+  "legal": {
+    "updated": "Terakhir diperbarui: Juni 2026",
+    "disclaimer": "Dokumen ini template umum dan belum ditinjau penasihat hukum. Sesuaikan dengan badan usaha Anda sebelum dipublikasikan.",
+    "backToHome": "Kembali ke beranda",
+    "terms": {
+      "title": "Syarat & Ketentuan",
+      "intro": "Dengan menggunakan layanan Wafinix, Anda menyetujui ketentuan berikut.",
+      "sections": [
+        { "heading": "1. Layanan", "body": "Wafinix menyediakan jasa pembuatan website, sistem, dan aplikasi sesuai lingkup yang disepakati dalam penawaran." },
+        { "heading": "2. Pembayaran", "body": "Pembayaran sesuai termin yang disepakati. Pekerjaan dimulai setelah pembayaran awal diterima dan tercatat." },
+        { "heading": "3. Revisi & Garansi", "body": "Jumlah revisi dan masa garansi bug mengikuti paket yang dipilih. Perubahan di luar lingkup dapat dikenakan biaya tambahan." },
+        { "heading": "4. Timeline", "body": "Estimasi waktu bersifat indikatif dan dapat berubah bila ada perubahan kebutuhan atau keterlambatan materi dari klien." },
+        { "heading": "5. Pembatalan", "body": "Pembatalan setelah pekerjaan dimulai dapat dikenakan biaya atas pekerjaan yang telah berjalan." }
+      ]
+    },
+    "privacy": {
+      "title": "Kebijakan Privasi",
+      "intro": "Kami menghormati privasi Anda dan hanya mengumpulkan data yang diperlukan.",
+      "sections": [
+        { "heading": "1. Data yang dikumpulkan", "body": "Nama, email, nomor WhatsApp, dan detail proyek yang Anda kirimkan melalui form atau pemesanan." },
+        { "heading": "2. Penggunaan data", "body": "Data digunakan untuk menanggapi permintaan, memproses pesanan, dan komunikasi terkait proyek." },
+        { "heading": "3. Pembayaran", "body": "Transaksi diproses melalui penyedia pembayaran tepercaya. Kami tidak menyimpan detail kartu Anda." },
+        { "heading": "4. Keamanan", "body": "Data disimpan dengan kontrol akses ketat dan enkripsi. Akses dibatasi untuk keperluan operasional." },
+        { "heading": "5. Hak Anda", "body": "Anda dapat meminta akses, koreksi, atau penghapusan data pribadi Anda kapan saja." }
+      ]
+    },
+    "license": {
+      "title": "Lisensi & SLA",
+      "intro": "Ketentuan kepemilikan kode, lisensi, dan tingkat layanan.",
+      "sections": [
+        { "heading": "1. Kepemilikan", "body": "Setelah pelunasan, kode dan aset proyek menjadi milik klien, kecuali komponen pihak ketiga berlisensi terpisah." },
+        { "heading": "2. Lisensi pihak ketiga", "body": "Library open-source mengikuti lisensinya masing-masing. Aset berbayar (font, gambar) memerlukan lisensi terpisah bila diminta." },
+        { "heading": "3. Garansi bug", "body": "Perbaikan bug gratis selama masa garansi sesuai paket. Tidak mencakup perubahan kebutuhan baru." },
+        { "heading": "4. SLA dukungan", "body": "Paket Bisnis & Enterprise mendapat SLA respons. Detail waktu respons disepakati dalam kontrak." },
+        { "heading": "5. Pemeliharaan", "body": "Paket maintenance opsional mencakup update, monitoring, dan backup rutin." }
+      ]
+    }
   }
 }

@@ -174,5 +174,90 @@
     "ctaSubtitle": "We build custom solutions all the time. Tell us your specific needs.",
     "ctaPrimary": "Start a Project",
     "ctaSecondary": "Chat on WhatsApp"
+  },
+  "harga": {
+    "title": "Transparent pricing",
+    "subtitle": "Four package tiers for different needs. Prices are indicative — tailored to your project scope.",
+    "documentsLabel": "Documents you receive",
+    "securityLabel": "Security",
+    "popular": "Most popular",
+    "ctaOrder": "Order Package",
+    "ctaConsult": "Free Consultation",
+    "addOnsTitle": "Add-ons",
+    "addOnsSubtitle": "Extend your package any time.",
+    "note": "Prices exclude tax where applicable. Contact us for an exact quote.",
+    "ctaTitle": "Not sure which package?",
+    "ctaSubtitle": "Tell us your needs — we'll help you choose the best fit, free.",
+    "ctaPrimary": "Start a Project",
+    "ctaSecondary": "Chat on WhatsApp"
+  },
+  "tentang": {
+    "title": "We build like we're building for ourselves",
+    "subtitle": "Wafinix was born from the belief that good software starts with thorough planning — not just coding.",
+    "storyTitle": "Our story",
+    "story": [
+      "The name Wafinix is inspired by the phoenix — a bird that rises and transforms. That's what we do for businesses: turn manual processes into living, growing digital systems.",
+      "We serve small businesses to enterprises, in Indonesia and worldwide. Every project starts with planning documents so the result is focused, consistent, and easy to grow."
+    ],
+    "valuesTitle": "What we stand for",
+    "values": [
+      { "title": "Show, don't claim", "desc": "This very site is our portfolio — the motion, 3D, and security are real." },
+      { "title": "Warm & human", "desc": "Technology can be advanced, but the experience must feel comfortable and approachable." },
+      { "title": "Document-driven", "desc": "We design before we code — PRD, architecture, design — to stay on target." },
+      { "title": "Secure from the foundation", "desc": "Transaction security is our highest priority, not an afterthought." }
+    ],
+    "ctaTitle": "Let's build something together",
+    "ctaSubtitle": "Tell us your idea — the first consultation is free.",
+    "ctaPrimary": "Start a Project",
+    "ctaSecondary": "Chat on WhatsApp"
+  },
+  "kontak": {
+    "title": "Get in touch",
+    "subtitle": "Have a project or a question? We usually reply the same day.",
+    "whatsappLabel": "WhatsApp",
+    "whatsappCta": "Chat on WhatsApp",
+    "emailLabel": "Email",
+    "addressLabel": "Location",
+    "hoursLabel": "Working hours",
+    "hours": "Mon–Fri, 9am–5pm WIB",
+    "formNote": "The full order form is available on the Order page."
+  },
+  "legal": {
+    "updated": "Last updated: June 2026",
+    "disclaimer": "This is a general template not yet reviewed by legal counsel. Adapt it to your entity before publishing.",
+    "backToHome": "Back to home",
+    "terms": {
+      "title": "Terms of Service",
+      "intro": "By using Wafinix services, you agree to the following terms.",
+      "sections": [
+        { "heading": "1. Services", "body": "Wafinix provides website, system, and application development within the scope agreed in the proposal." },
+        { "heading": "2. Payment", "body": "Payment follows the agreed terms. Work begins after the initial payment is received and recorded." },
+        { "heading": "3. Revisions & Warranty", "body": "Revision counts and bug-warranty periods follow the selected package. Out-of-scope changes may incur extra fees." },
+        { "heading": "4. Timeline", "body": "Time estimates are indicative and may change with new requirements or delays in client-provided materials." },
+        { "heading": "5. Cancellation", "body": "Cancellation after work has started may incur charges for work already completed." }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "We respect your privacy and collect only the data we need.",
+      "sections": [
+        { "heading": "1. Data we collect", "body": "Name, email, WhatsApp number, and project details you submit via forms or orders." },
+        { "heading": "2. How we use it", "body": "To respond to requests, process orders, and communicate about your project." },
+        { "heading": "3. Payments", "body": "Transactions are processed via trusted payment providers. We do not store your card details." },
+        { "heading": "4. Security", "body": "Data is stored with strict access control and encryption, limited to operational needs." },
+        { "heading": "5. Your rights", "body": "You may request access, correction, or deletion of your personal data at any time." }
+      ]
+    },
+    "license": {
+      "title": "License & SLA",
+      "intro": "Terms for code ownership, licensing, and service levels.",
+      "sections": [
+        { "heading": "1. Ownership", "body": "Upon full payment, project code and assets become the client's, except separately licensed third-party components." },
+        { "heading": "2. Third-party licenses", "body": "Open-source libraries follow their own licenses. Paid assets (fonts, images) require separate licensing if requested." },
+        { "heading": "3. Bug warranty", "body": "Free bug fixes during the package's warranty period. New requirements are not included." },
+        { "heading": "4. Support SLA", "body": "Business & Enterprise packages include a response SLA. Exact response times are agreed in the contract." },
+        { "heading": "5. Maintenance", "body": "Optional maintenance packages cover updates, monitoring, and regular backups." }
+      ]
+    }
   }
 }
