@@ -152,5 +152,16 @@
       "primary": "Start a Project",
       "secondary": "Chat on WhatsApp"
     }
+  },
+  "layanan": {
+    "title": "What we build",
+    "subtitle": "From the first page to the system that runs your business — everything thoughtfully planned, cleanly built, and maintained.",
+    "featuresLabel": "What's included",
+    "techTitle": "Technologies we master",
+    "techSubtitle": "We pick the right tool for each problem — not one hammer for everything.",
+    "ctaTitle": "Not sure where to start?",
+    "ctaSubtitle": "Tell us what you need and we'll map out the best solution — free.",
+    "ctaPrimary": "See Pricing",
+    "ctaSecondary": "Free Consultation"
   }
 }

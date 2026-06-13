@@ -152,5 +152,16 @@
       "primary": "Mulai Proyek",
       "secondary": "Konsultasi via WhatsApp"
     }
+  },
+  "layanan": {
+    "title": "Layanan yang kami buat",
+    "subtitle": "Dari halaman pertama sampai sistem yang menjalankan bisnis Anda — semuanya dirancang matang, dibangun rapi, dan dirawat.",
+    "featuresLabel": "Yang termasuk",
+    "techTitle": "Teknologi yang kami kuasai",
+    "techSubtitle": "Kami pilih tools yang tepat untuk tiap masalah — bukan satu palu untuk semua kebutuhan.",
+    "ctaTitle": "Tidak yakin mulai dari mana?",
+    "ctaSubtitle": "Ceritakan kebutuhan Anda, kami bantu petakan solusi paling pas — gratis.",
+    "ctaPrimary": "Lihat Harga",
+    "ctaSecondary": "Konsultasi Gratis"
   }
 }
