@@ -52,7 +52,8 @@
 ## 🔄 Tahap 5 — Layanan & Solusi (dipecah 5a/5b)
 - [x] data/services.ts (7, + `points`), industries.ts (9), techstack.ts (kategori + techMarquee)
 - [x] **5a /layanan**: 7 layanan sebagai baris editorial zig-zag (bukan grid identik) + grid tech stack terkategori (chip) + CTABand; PageHeader & CTABand reusable; dua bahasa; build SSG lolos; commit
-- [ ] **5b /solusi**: 9 industri (masing-masing: masalah → solusi → fitur → CTA). Perlu perluas `data/industries.ts` dgn `problem`/`solution`/`features`, messages `solusi`, halaman + komponen
+- [x] **5b /solusi**: 9 industri sebagai kartu solusi kaya (Tantangan→Solusi→Fitur), grid 2 kolom; `data/industries.ts` diperluas (`problem`/`solution`/`features`); messages `solusi`; dua bahasa; build SSG lolos
+- [x] **Perbaikan UI (dari feedback mobile user)**: menu mobile jadi sheet opaque slide-dari-atas (z-60, h-100dvh) — fix transparan; IndustriesScroll Home dari scroll-jack horizontal → grid responsif natural; TechGrid /layanan jadi panel kategori berbatas jelas
 - Catatan: polish Home (eyebrow cadence, :active, transition) + impeccable init (PRODUCT.md/DESIGN.md) sudah di commit 39026f6. Preview lokal sempat tidak stabil (port 3000 ditahan proses lain) — verifikasi via build SSG + URL produksi.
 
 ## ⬜ Tahap 6 — Harga

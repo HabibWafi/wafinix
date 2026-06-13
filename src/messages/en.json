@@ -163,5 +163,16 @@
     "ctaSubtitle": "Tell us what you need and we'll map out the best solution — free.",
     "ctaPrimary": "See Pricing",
     "ctaSecondary": "Free Consultation"
+  },
+  "solusi": {
+    "title": "Solutions for your industry",
+    "subtitle": "Every field has its own challenges. Here's how we solve them.",
+    "problemLabel": "The challenge",
+    "solutionLabel": "Our solution",
+    "featuresLabel": "What we build",
+    "ctaTitle": "Don't see your industry?",
+    "ctaSubtitle": "We build custom solutions all the time. Tell us your specific needs.",
+    "ctaPrimary": "Start a Project",
+    "ctaSecondary": "Chat on WhatsApp"
   }
 }

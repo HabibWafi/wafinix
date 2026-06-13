@@ -163,5 +163,16 @@
     "ctaSubtitle": "Ceritakan kebutuhan Anda, kami bantu petakan solusi paling pas — gratis.",
     "ctaPrimary": "Lihat Harga",
     "ctaSecondary": "Konsultasi Gratis"
+  },
+  "solusi": {
+    "title": "Solusi untuk industri Anda",
+    "subtitle": "Setiap bidang usaha punya tantangan sendiri. Inilah cara kami menyelesaikannya.",
+    "problemLabel": "Tantangan",
+    "solutionLabel": "Solusi kami",
+    "featuresLabel": "Yang kami bangun",
+    "ctaTitle": "Industri Anda tidak ada di daftar?",
+    "ctaSubtitle": "Kami terbiasa membangun solusi custom. Ceritakan kebutuhan spesifik Anda.",
+    "ctaPrimary": "Mulai Proyek",
+    "ctaSecondary": "Konsultasi via WhatsApp"
   }
 }
