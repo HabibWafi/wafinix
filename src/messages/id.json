@@ -259,5 +259,24 @@
         { "heading": "5. Pemeliharaan", "body": "Paket maintenance opsional mencakup update, monitoring, dan backup rutin." }
       ]
     }
+  },
+  "portofolio": {
+    "title": "Karya yang kami banggakan",
+    "subtitle": "Contoh nyata bagaimana kami mengubah kebutuhan bisnis jadi produk digital yang hidup.",
+    "filterAll": "Semua",
+    "viewCase": "Lihat studi kasus",
+    "challengeLabel": "Tantangan",
+    "solutionLabel": "Solusi",
+    "resultLabel": "Hasil",
+    "featuresLabel": "Fitur utama",
+    "techLabel": "Teknologi",
+    "viewDemo": "Lihat Demo",
+    "demoSoon": "Demo segera hadir",
+    "backToList": "Semua portofolio",
+    "note": "Sebagian adalah konsep ilustratif — akan diganti proyek klien nyata.",
+    "ctaTitle": "Punya proyek serupa?",
+    "ctaSubtitle": "Ceritakan kebutuhan Anda — kami bantu wujudkan.",
+    "ctaPrimary": "Mulai Proyek",
+    "ctaSecondary": "Konsultasi via WhatsApp"
   }
 }

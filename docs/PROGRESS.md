@@ -67,11 +67,12 @@
 - [x] PageHeader & CTABand reusable dipakai ulang; build SSG dua bahasa
 - Sisa 404 navbar/footer kini hanya /order & /portofolio (Tahap 7–9)
 
-## ⬜ Tahap 7 — Portofolio A
-- [ ] data/portfolio.ts (8 entri)
-- [ ] /portofolio grid + filter industri; /portofolio/[slug] case study
-- [ ] Demo: kopi-nusantara, sajira-restaurant, amara-hotel, tripnusa
-- [ ] Commit
+## ✅ Tahap 7 — Portofolio A
+- [x] data/portfolio.ts (8 entri; field challenge/solution/result/features/tech/accent/demo)
+- [x] /portofolio grid + filter kategori (client); /portofolio/[slug] case study (hero accent, blok C/S/R, fitur, tech, tombol demo)
+- [x] Demo 1–4: kopi-nusantara, sajira-restaurant, amara-hotel, tripnusa (standalone, palet masing-masing)
+- [x] Infra demo: app/demo/layout.tsx (root layout terpisah, tanpa navbar Wafinix) + DemoBanner; proxy sudah exclude /demo
+- [x] Build SSG lolos (16 case study path); commit
 
 ## ⬜ Tahap 8 — Portofolio B
 - [ ] Demo: safar-mabrur, primaland, eximtrade, kasirpro (dashboard)

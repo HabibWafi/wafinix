@@ -259,5 +259,24 @@
         { "heading": "5. Maintenance", "body": "Optional maintenance packages cover updates, monitoring, and regular backups." }
       ]
     }
+  },
+  "portofolio": {
+    "title": "Work we're proud of",
+    "subtitle": "Real examples of how we turn business needs into living digital products.",
+    "filterAll": "All",
+    "viewCase": "View case study",
+    "challengeLabel": "Challenge",
+    "solutionLabel": "Solution",
+    "resultLabel": "Result",
+    "featuresLabel": "Key features",
+    "techLabel": "Technology",
+    "viewDemo": "View Demo",
+    "demoSoon": "Demo coming soon",
+    "backToList": "All portfolio",
+    "note": "Some are illustrative concepts — to be replaced with real client projects.",
+    "ctaTitle": "Have a similar project?",
+    "ctaSubtitle": "Tell us your needs — we'll help make it real.",
+    "ctaPrimary": "Start a Project",
+    "ctaSecondary": "Chat on WhatsApp"
   }
 }
