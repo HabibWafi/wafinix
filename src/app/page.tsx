@@ -1,13 +1,13 @@
+import { Logo } from "@/components/layout/Logo";
+
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center bg-cream px-6 text-center">
-      <p className="mb-4 rounded-full bg-sand px-4 py-1.5 text-sm font-medium text-cocoa">
-        Tahap 1 — fondasi siap
+      <p className="mb-6 rounded-full bg-sand px-4 py-1.5 text-sm font-medium text-cocoa">
+        Tahap 2 — brand & logo siap
       </p>
-      <h1 className="max-w-2xl text-5xl font-medium leading-tight sm:text-6xl">
-        wafinix<span className="text-terracotta">.</span>
-      </h1>
-      <p className="mt-5 max-w-xl text-lg leading-relaxed">
+      <Logo variant="stacked" priority className="h-44 w-auto" />
+      <p className="mt-8 max-w-xl text-lg leading-relaxed">
         Website, sistem, dan aplikasi untuk bisnis Anda — dari UMKM sampai
         enterprise. Situs lengkap sedang dibangun.
       </p>

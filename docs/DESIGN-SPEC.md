@@ -53,7 +53,12 @@ Selang-seling: cream → sand → cream → espresso (gelap, 1–2 per halaman) 
 - Semua: `dynamic(..., {ssr:false})`, lazy saat mendekati viewport, fallback gambar statis
 
 ## Logo
-Hasil generate AI (Tahap 2): lettermark "W" + wordmark. File di `public/brand/`: `logo.png` (terang), `logo-dark.png`, `mark.png` (simbol saja), favicon set. Komponen `<Logo variant="full|mark" theme="light|dark" />`.
+Dirancang sendiri oleh pemilik — konsep **phoenix** ("Wa"+phoenix), tagline "Build. Transform. Grow.", memakai palet Terracotta Warm. Aset & cara regenerasi: `public/brand/README.md`. Komponen `src/components/layout/Logo.tsx`:
+- `<Logo variant="horizontal" />` — default, lockup transparan untuk background terang (navbar)
+- `<Logo variant="stacked" />` — lockup vertikal penuh + tagline (hero/about)
+- `<Logo variant="mark" />` — simbol phoenix-W saja
+- `onDark` — di section gelap (espresso), render mark + wordmark teks cream
+Favicon: `src/app/{favicon.ico,icon.png,apple-icon.png}` (konvensi file Next.js App Router).
 
 ## Demo Pages
 Tiap demo punya mini-brand sendiri (palet & font berbeda dari Wafinix) agar terlihat seperti proyek nyata, dengan banner tetap "Konsep demo oleh Wafinix — pesan web seperti ini" di atas.

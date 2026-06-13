@@ -15,13 +15,16 @@
 - [x] `npm run build` lolos
 - [x] Commit Tahap 1
 
-## ⬜ Tahap 2 — Logo & Brand
-- [ ] Generate 3–4 konsep logo AI → user pilih
-- [ ] Remove background + upscale hasil terpilih
-- [ ] public/brand/: logo.png, logo-dark.png, mark.png
-- [ ] Favicon set (ico, 192, 512, apple-touch) + metadata icons
-- [ ] Komponen `<Logo />`
-- [ ] Commit
+## ✅ Tahap 2 — Logo & Brand (selesai 2026-06-13)
+- [x] ~~Generate konsep logo AI~~ → **user pakai logo desain sendiri** (konsep phoenix: "Wa"+phoenix, tagline "Build. Transform. Grow."; palet Terracotta Warm — ternyata cocok dgn tema)
+- [x] Keputusan warna: **tema tetap Terracotta Warm**, logo memakai palet yang sama — design tokens TIDAK diubah
+- [x] User upload set logo lengkap ke `public/brand/` (utama, horizontal, icon, wordmark, mono, panduan)
+- [x] `scripts/process-logo.ps1` — flood-fill bg removal (preserve sayap cream interior) + generate favicon, reusable
+- [x] Turunan transparan: `mark.png`, `logo-stacked.png` (`logo-horizontal.png` sudah transparan dari user)
+- [x] Favicon set: `src/app/favicon.ico` (16/32/48), `icon.png` (512), `apple-icon.png` (180, mark di atas sand) — auto-link via konvensi Next.js
+- [x] Komponen `<Logo variant=horizontal|stacked|mark, onDark>`
+- [x] Hapus aset SVG bawaan create-next-app; build & lint lolos
+- [x] Commit
 
 ## ⬜ Tahap 3 — Layout & Dekorasi
 - [ ] next-intl: routing /id /en, messages/id.json en.json, middleware
@@ -97,3 +100,5 @@
 - 2026-06-13: Proyek dimulai. plan.md dari mode plan dipindah ke docs/PLAN.md.
 - 2026-06-13: Terpasang **Next.js 16.2.9** — `middleware.ts` DEPRECATED, ganti `proxy.ts` (export function `proxy`). Baca `node_modules/next/dist/docs/` sebelum pakai API yang tidak yakin (penting untuk Tahap 3 i18n & Tahap 11 admin).
 - 2026-06-13: CLAUDE.md bawaan scaffold berisi include `@AGENTS.md` — panduan proyek ditulis di AGENTS.md.
+- 2026-06-13: **Higgsfield generate_image OUT OF CREDIT** (workspace free, 0 kredit). Canva `generate-design` jalan tapi user akhirnya pakai logo desain sendiri. Untuk Tahap 4 (3D/ilustrasi): andalkan R3F prosedural + SVG kode, JANGAN andalkan generate gambar AI kecuali user top-up. User bilang akan desain aset sendiri & kasih ke kita bila perlu.
+- 2026-06-13: Logo = set lengkap dari user di `public/brand/`. Background removal pakai `scripts/process-logo.ps1` (System.Drawing flood-fill dari tepi — preserve elemen cream interior). Jalankan ulang script ini kalau user ganti file logo.
