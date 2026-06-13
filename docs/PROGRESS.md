@@ -3,7 +3,7 @@
 > **Aturan**: centang item SEGERA setelah selesai (bukan di akhir sesi). Sesi baru: baca file ini + `CLAUDE.md` dulu, cek `git log` -5, verifikasi `npm run build` sebelum lanjut.
 > Status tahap: ⬜ belum · 🔄 sedang berjalan · ✅ selesai (ter-commit)
 
-## 🔄 Tahap 1 — Fondasi
+## ✅ Tahap 1 — Fondasi (selesai 2026-06-13, commit a838efa)
 - [x] git init (oleh create-next-app)
 - [x] Scaffold Next.js 15 (TS, Tailwind v4, App Router, src-dir)
 - [x] docs/: PLAN, PRD, ARCHITECTURE, DESIGN-SPEC, CONTENT-GUIDE, ROADMAP, TESTING, PROGRESS
@@ -13,7 +13,7 @@
 - [x] Font Fraunces + Plus Jakarta Sans via next/font
 - [x] Halaman placeholder sementara memakai tokens (bukti tokens jalan)
 - [x] `npm run build` lolos
-- [ ] Commit Tahap 1
+- [x] Commit Tahap 1
 
 ## ⬜ Tahap 2 — Logo & Brand
 - [ ] Generate 3–4 konsep logo AI → user pilih
