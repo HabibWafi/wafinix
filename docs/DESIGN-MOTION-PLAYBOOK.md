@@ -50,7 +50,10 @@ File ini portabel — boleh disalin ke repo mana pun.
 ### C. Membuat aset / referensi visual
 - Brand board / identitas → `brandkit`
 - Referensi desain web per-section (1 gambar per section) → `imagegen-frontend-web`, lalu implementasi → `image-to-code`
-- ⚠️ Skill ini butuh **tool image-gen aktif**. Higgsfield `generate_image` sedang habis kredit; alternatif: top-up, atau pakai Canva/Gemini bila tersedia. Tanpa itu, skill tetap memberi *arahan/prompt* tapi tidak meng-output gambar.
+- ⚠️ Skill ini butuh **tool image-gen aktif**. Pilihan:
+  - **nano-banana (Gemini) bridge** → `node scripts/nano-banana.mjs --prompt "..." [--image in.png] --out public/brand/x.png`. Key di `.env.local` (`NANO_BANANA_API_KEY`). **Perlu billing aktif** di project Google AI Studio — free tier = 0 kuota untuk model image (`gemini-2.5-flash-image`).
+  - Higgsfield `generate_image` (MCP) — sedang habis kredit.
+  - Tanpa tool aktif, skill tetap memberi *arahan/prompt* tapi tidak meng-output gambar.
 
 ### D. Motion & animasi (fokus permintaanmu: "smooth & alive, bukan static")
 Lihat cheat-sheet §5. Inti: easing kustom + animasi yang punya alasan + selalu ada fallback reduced-motion.
