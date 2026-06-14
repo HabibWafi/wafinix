@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Sticky banner shown on every /demo page. Non-i18n (demos are standalone),
 // so copy is hardcoded. Links point to the Wafinix site (default locale).
 export function DemoBanner() {
@@ -9,12 +11,12 @@ export function DemoBanner() {
           <strong className="font-semibold">Konsep demo</strong> oleh Wafinix
         </span>
       </span>
-      <a
+      <Link
         href="/id/kontak"
         className="shrink-0 rounded-full bg-[#c8623e] px-3.5 py-1.5 font-semibold text-[#fff8f2] transition active:scale-[0.97]"
       >
         Pesan web seperti ini →
-      </a>
+      </Link>
     </div>
   );
 }

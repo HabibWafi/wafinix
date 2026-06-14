@@ -167,7 +167,7 @@ export const portfolio: PortfolioItem[] = [
     ],
     tech: ["Next.js", "Tailwind CSS", "Supabase"],
     accent: "#1f7a5a",
-    demo: false,
+    demo: true,
   },
   {
     slug: "primaland",
@@ -197,7 +197,7 @@ export const portfolio: PortfolioItem[] = [
     ],
     tech: ["Next.js", "Tailwind CSS", "PostgreSQL", "Google Maps API"],
     accent: "#1f3a8a",
-    demo: false,
+    demo: true,
   },
   {
     slug: "eximtrade",
@@ -227,7 +227,7 @@ export const portfolio: PortfolioItem[] = [
     ],
     tech: ["Next.js", "Tailwind CSS", "next-intl"],
     accent: "#3a5a78",
-    demo: false,
+    demo: true,
   },
   {
     slug: "kasirpro",
@@ -257,6 +257,6 @@ export const portfolio: PortfolioItem[] = [
     ],
     tech: ["Next.js", "Tailwind CSS", "PostgreSQL", "Recharts"],
     accent: "#5b3a8a",
-    demo: false,
+    demo: true,
   },
 ];

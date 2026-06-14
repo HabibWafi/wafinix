@@ -74,9 +74,14 @@
 - [x] Infra demo: app/demo/layout.tsx (root layout terpisah, tanpa navbar Wafinix) + DemoBanner; proxy sudah exclude /demo
 - [x] Build SSG lolos (16 case study path); commit
 
-## ⬜ Tahap 8 — Portofolio B
-- [ ] Demo: safar-mabrur, primaland, eximtrade, kasirpro (dashboard)
-- [ ] Commit
+## ✅ Tahap 8 — Portofolio B (demo photo-real)
+- [x] `data/demos.ts` — config 7 demo marketing (palet via CSS vars + URL foto stok Unsplash terverifikasi 200) + helper `img()`
+- [x] Renderer `DemoPage` (nav, hero split/overlay, widget search/booking/reservasi, trust/feature bar, kartu berfoto, stats, footer)
+- [x] Upgrade 4 demo lama (kopi/sajira/amara/tripnusa) → setara referensi; demo baru: safar-mabrur (ikuti referensi Kaaba+trust+paket+stats), primaland, eximtrade
+- [x] KasirPro bespoke (dashboard POS: sidebar, KPI, chart bar, tabel transaksi, top produk)
+- [x] Wiring: `portfolio.ts` semua `demo: true` → tombol "Lihat Demo" muncul untuk 8 case study
+- [x] Build SSG 8 demo lolos; lint 0 error (warning <img> disengaja); commit
+- Catatan: gambar = foto stok Unsplash via `<img>` (dipusatkan di demos.ts, mudah diganti aset user/nano-banana nanti)
 
 ## ⬜ Tahap 9 — Supabase & Order
 - [ ] supabase/migrations: 5 tabel + constraint + RLS deny-all
