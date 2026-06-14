@@ -85,7 +85,8 @@
 
 ## 🔄 Tahap 9 — Supabase & Order (9a selesai; 9b butuh kunci Supabase)
 - [x] **9a /order form multi-step** (react-hook-form + Zod, harga dibaca server dari pricing.ts, baca `?paket=`) → kirim ringkasan ke **WhatsApp** (interim, jalan tanpa backend). Hapus 404 /order. Commit.
-- [ ] **9b** (butuh env Supabase user): supabase/migrations 5 tabel + RLS deny-all; lib/supabase server-only; server action persist order (kode WFX-…); /order/[code] halaman status; Security headers + CSP + Turnstile + rate limit
+- [x] **9b kode**: env Supabase (.env.local + Vercel prod), `supabase/migrations/0001_init.sql` (5 tabel + RLS deny-all), `lib/supabase/server` (service-role server-only), server action `createOrder` (Zod, harga & kode WFX dari server), OrderForm→persist→redirect, halaman status `/order/[code]`. Build+lint lolos; service key terverifikasi via PostgREST.
+- [ ] **9b sisa**: ⏳ user jalankan `supabase/migrations/0001_init.sql` di Supabase SQL Editor (DDL tak bisa via API). Lalu verifikasi insert. Security headers + CSP + Turnstile + rate-limit ditunda ke pass keamanan.
 - Catatan: build sempat gagal karena `.next/dev/types/routes.d.ts` korup (dev server menulis bersamaan) — fix: hapus `.next` lalu build ulang.
 
 ## ⬜ Tahap 10 — Pembayaran
