@@ -7,6 +7,7 @@ import type { DemoConfig } from "@/data/demos";
 // via CSS variables on the root so every primitive stays generic.
 export function DemoPage({ c }: { c: DemoConfig }) {
   const overlay = c.heroLayout === "overlay";
+  const ctaBg = c.ctaColor === "accent" ? "var(--d-accent)" : "var(--d-brand)";
   const vars = {
     "--d-bg": c.bg,
     "--d-surface": c.surface,
@@ -22,19 +23,19 @@ export function DemoPage({ c }: { c: DemoConfig }) {
       <DemoBanner />
 
       {c.announcement && (
-        <div className="bg-[var(--d-brand)] px-4 py-2 text-center text-xs text-[var(--d-on)] sm:text-sm">
+        <div className="bg-[var(--d-ink)] px-4 py-2 text-center text-xs text-[var(--d-bg)] sm:text-sm">
           {c.announcement}
         </div>
       )}
 
       {/* Nav */}
-      <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+      <header className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4 sm:px-6">
         <span className="flex items-baseline gap-1.5">
-          <span className="font-display text-xl font-semibold text-[var(--d-ink)]">
+          <span className="font-display text-lg font-semibold text-[var(--d-ink)] sm:text-xl">
             {c.brand}
           </span>
           {c.brandSub && (
-            <span className="text-[10px] uppercase tracking-[0.18em] text-[var(--d-accent)]">
+            <span className="hidden text-[10px] uppercase tracking-[0.18em] text-[var(--d-accent)] sm:inline">
               {c.brandSub}
             </span>
           )}
@@ -46,40 +47,40 @@ export function DemoPage({ c }: { c: DemoConfig }) {
             </span>
           ))}
         </nav>
-        <span className="shrink-0 rounded-full bg-[var(--d-accent)] px-4 py-2 text-sm font-semibold text-[var(--d-on)]">
+        <span
+          className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold text-[var(--d-on)] sm:text-sm"
+          style={{ background: ctaBg }}
+        >
           {c.navCta}
         </span>
       </header>
 
       {/* Hero */}
       {overlay ? (
-        <section className="relative">
+        <section className="relative isolate overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={c.hero.image}
             alt={c.brand}
-            className="h-[420px] w-full object-cover sm:h-[520px]"
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
-          <div className="absolute inset-0">
-            <div className="mx-auto flex h-full max-w-6xl flex-col justify-center px-6">
-              <div className="max-w-xl">
-                <p className="text-sm font-semibold uppercase tracking-wide text-[var(--d-accent)]">
-                  {c.hero.eyebrow}
-                </p>
-                <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                  {c.hero.title}
-                </h1>
-                <p className="mt-4 max-w-md text-lg text-white/85">{c.hero.sub}</p>
-                <HeroCtas c={c} dark />
-              </div>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/25" />
+          <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+            <div className="max-w-xl [text-shadow:0_1px_16px_rgba(0,0,0,0.55)]">
+              <p className="text-sm font-semibold uppercase tracking-wide text-[var(--d-accent)]">
+                {c.hero.eyebrow}
+              </p>
+              <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                {c.hero.title}
+              </h1>
+              <p className="mt-4 max-w-md text-lg text-white/90">{c.hero.sub}</p>
+              <HeroCtas c={c} ctaBg={ctaBg} dark />
             </div>
           </div>
         </section>
       ) : (
-        <section
-          className={c.heroDark ? "bg-[var(--d-bg)]" : ""}
-        >
-          <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-12 lg:grid-cols-2 lg:py-16">
+        <section>
+          <div className="mx-auto grid max-w-6xl items-center gap-8 px-6 py-10 lg:grid-cols-2 lg:py-16">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-[var(--d-accent)]">
                 {c.hero.eyebrow}
@@ -88,8 +89,9 @@ export function DemoPage({ c }: { c: DemoConfig }) {
                 {c.hero.title}
               </h1>
               <p className="mt-4 max-w-md text-lg">{c.hero.sub}</p>
-              <HeroCtas c={c} />
+              <HeroCtas c={c} ctaBg={ctaBg} />
             </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.hero.image}
               alt={c.brand}
@@ -117,7 +119,10 @@ export function DemoPage({ c }: { c: DemoConfig }) {
                 </p>
               </div>
             ))}
-            <span className="flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-[var(--d-brand)] px-6 py-3 font-semibold text-[var(--d-on)]">
+            <span
+              className="flex shrink-0 items-center justify-center gap-2 rounded-2xl px-6 py-3 font-semibold text-[var(--d-on)]"
+              style={{ background: ctaBg }}
+            >
               <Search className="h-4 w-4" />
               {c.widget.cta}
             </span>
@@ -193,6 +198,7 @@ export function DemoPage({ c }: { c: DemoConfig }) {
               className="overflow-hidden rounded-3xl bg-[var(--d-surface)] shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
             >
               <div className="relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={card.image}
                   alt={card.title}
@@ -200,7 +206,10 @@ export function DemoPage({ c }: { c: DemoConfig }) {
                   className="h-44 w-full object-cover"
                 />
                 {card.badge && (
-                  <span className="absolute left-3 top-3 rounded-full bg-[var(--d-brand)] px-2.5 py-1 text-[11px] font-semibold text-[var(--d-on)]">
+                  <span
+                    className="absolute left-3 top-3 rounded-full px-2.5 py-1 text-[11px] font-semibold text-[var(--d-on)]"
+                    style={{ background: "var(--d-brand)" }}
+                  >
                     {card.badge}
                   </span>
                 )}
@@ -260,14 +269,23 @@ export function DemoPage({ c }: { c: DemoConfig }) {
   );
 }
 
-function HeroCtas({ c, dark }: { c: DemoConfig; dark?: boolean }) {
+function HeroCtas({
+  c,
+  ctaBg,
+  dark,
+}: {
+  c: DemoConfig;
+  ctaBg: string;
+  dark?: boolean;
+}) {
   return (
     <div className="mt-7 flex flex-wrap gap-3">
       {c.hero.ctas.map((cta) =>
         cta.primary ? (
           <span
             key={cta.label}
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--d-accent)] px-6 py-3 font-semibold text-[var(--d-on)]"
+            className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-[var(--d-on)]"
+            style={{ background: ctaBg }}
           >
             {cta.label}
             <ArrowRight className="h-4 w-4" />

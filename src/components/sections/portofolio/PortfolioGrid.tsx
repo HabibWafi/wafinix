@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { portfolio } from "@/data/portfolio";
 import { pick } from "@/lib/i18n-text";
@@ -42,34 +42,50 @@ export function PortfolioGrid() {
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((p) => (
             <Reveal key={p.slug}>
-              <Link
-                href={`/portofolio/${p.slug}`}
-                className="group block h-full overflow-hidden rounded-3xl border border-cocoa/10 bg-warm-white transition duration-200 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-[0_12px_40px_-12px_rgba(200,98,62,0.3)]"
-              >
-                <div
-                  className="flex h-40 items-end p-5"
-                  style={{ background: `linear-gradient(135deg, ${p.accent}, ${p.accent}bb)` }}
-                >
-                  <span className="font-display text-2xl font-semibold text-white/95">
-                    {p.client}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-terracotta">
-                    {pick(p.category, locale)}
-                  </span>
-                  <h3 className="mt-1 text-lg font-semibold text-espresso">
-                    {pick(p.title, locale)}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-cocoa">
-                    {pick(p.summary, locale)}
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-terracotta">
+              <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cocoa/10 bg-warm-white transition duration-200 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-[0_12px_40px_-12px_rgba(200,98,62,0.3)]">
+                <Link href={`/portofolio/${p.slug}`} className="block">
+                  <div
+                    className="flex h-40 items-end p-5"
+                    style={{ background: `linear-gradient(135deg, ${p.accent}, ${p.accent}bb)` }}
+                  >
+                    <span className="font-display text-2xl font-semibold text-white/95">
+                      {p.client}
+                    </span>
+                  </div>
+                  <div className="px-5 pb-3 pt-5">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-terracotta">
+                      {pick(p.category, locale)}
+                    </span>
+                    <h3 className="mt-1 text-lg font-semibold text-espresso">
+                      {pick(p.title, locale)}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-cocoa">
+                      {pick(p.summary, locale)}
+                    </p>
+                  </div>
+                </Link>
+
+                <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 px-5 pb-5 pt-1">
+                  <Link
+                    href={`/portofolio/${p.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-cocoa transition hover:text-terracotta"
+                  >
                     {t("viewCase")}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  {p.demo && (
+                    <a
+                      href={`/demo/${p.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-terracotta/10 px-3 py-1.5 text-sm font-semibold text-terracotta transition hover:bg-terracotta hover:text-warm-white active:scale-[0.97]"
+                    >
+                      {t("viewDemo")}
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </div>

@@ -58,6 +58,7 @@ export interface DemoConfig {
   brandColor: string;
   accent: string;
   onBrand: string;
+  ctaColor?: "brand" | "accent"; // which color CTAs use (default: brand)
   announcement?: string;
   nav: string[];
   navCta: string;
@@ -214,8 +215,8 @@ export const demos: Record<string, DemoConfig> = {
     surface: "#ffffff",
     ink: "#0f3a3a",
     muted: "#3a5a5a",
-    brandColor: "#ff6b5e",
-    accent: "#0fb5b5",
+    brandColor: "#0fb5b5",
+    accent: "#ff6b5e",
     onBrand: "#ffffff",
     nav: ["Beranda", "Paket Tur", "Destinasi", "Promo", "Tentang Kami", "Kontak"],
     navCta: "Hubungi Kami",
@@ -259,6 +260,7 @@ export const demos: Record<string, DemoConfig> = {
   "safar-mabrur": {
     brand: "Safar Mabrur",
     brandSub: "Haji & Umroh",
+    ctaColor: "accent",
     bg: "#f4f1ea",
     surface: "#ffffff",
     ink: "#0e3a2f",
@@ -347,6 +349,7 @@ export const demos: Record<string, DemoConfig> = {
   eximtrade: {
     brand: "EximTrade",
     brandSub: "Export-Import",
+    ctaColor: "accent",
     bg: "#f2f4f6",
     surface: "#ffffff",
     ink: "#1c2a38",
