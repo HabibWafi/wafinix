@@ -4,8 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useTranslations } from "next-intl";
-import { ArrowLeft, ArrowRight, Check, MessageCircle } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { useRouter } from "@/i18n/navigation";
+import { createOrder } from "@/lib/order-actions";
 
 export interface OrderPackage {
   slug: string;
@@ -15,14 +17,16 @@ export interface OrderPackage {
 
 export function OrderForm({
   packages,
-  whatsappNumber,
   initialPackage,
 }: {
   packages: OrderPackage[];
-  whatsappNumber: string;
   initialPackage: string;
 }) {
   const t = useTranslations("order");
+  const locale = useLocale();
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const schema = z.object({
     packageSlug: z.string().min(1, t("errRequired")),
@@ -71,26 +75,16 @@ export function OrderForm({
     if (ok) setStep((s) => Math.min(total - 1, s + 1));
   }
 
-  function onValid(data: FormData) {
-    const pkg = packages.find((p) => p.slug === data.packageSlug);
-    const lines = [
-      t("waGreeting"),
-      "",
-      `${t("waPackage")}: ${pkg ? `${pkg.name} (${pkg.price})` : data.packageSlug}`,
-      `${t("waName")}: ${data.name}`,
-      `${t("waEmail")}: ${data.email}`,
-      `${t("waWhatsapp")}: ${data.whatsapp}`,
-      data.company ? `${t("waCompany")}: ${data.company}` : null,
-      `${t("waBrief")}: ${data.brief}`,
-      data.budget ? `${t("waBudget")}: ${data.budget}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n");
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+  async function onValid(data: FormData) {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await createOrder({ ...data, locale });
+      router.push(`/order/${res.code}`);
+    } catch {
+      setSubmitError(t("submitError"));
+      setSubmitting(false);
+    }
   }
 
   const input =
@@ -196,6 +190,10 @@ export function OrderForm({
           </div>
         )}
 
+        {submitError && (
+          <p className="mt-4 text-sm font-medium text-terracotta">{submitError}</p>
+        )}
+
         {/* Controls */}
         <div className="mt-8 flex items-center justify-between gap-3">
           {step > 0 ? (
@@ -223,10 +221,11 @@ export function OrderForm({
           ) : (
             <button
               type="submit"
-              className="inline-flex items-center gap-2 rounded-full bg-terracotta px-7 py-3 font-semibold text-warm-white shadow-md transition hover:bg-terracotta-light active:scale-[0.97]"
+              disabled={submitting}
+              className="inline-flex items-center gap-2 rounded-full bg-terracotta px-7 py-3 font-semibold text-warm-white shadow-md transition hover:bg-terracotta-light active:scale-[0.97] disabled:opacity-60"
             >
-              <MessageCircle className="h-4 w-4" />
-              {t("submit")}
+              {submitting ? `${t("submit")}…` : t("submit")}
+              <Check className="h-4 w-4" />
             </button>
           )}
         </div>

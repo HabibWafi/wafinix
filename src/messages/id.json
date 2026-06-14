@@ -296,7 +296,8 @@
     "budgetLabel": "Estimasi budget (opsional)",
     "next": "Lanjut",
     "back": "Kembali",
-    "submit": "Kirim via WhatsApp",
+    "submit": "Buat Pesanan",
+    "submitError": "Gagal membuat pesanan. Coba lagi sebentar.",
     "errRequired": "Wajib diisi",
     "errEmail": "Email tidak valid",
     "errWhatsapp": "Nomor tidak valid",
@@ -309,6 +310,26 @@
     "waWhatsapp": "WhatsApp",
     "waCompany": "Perusahaan",
     "waBrief": "Kebutuhan",
-    "waBudget": "Budget"
+    "waBudget": "Budget",
+    "status": {
+      "thanks": "Terima kasih! Pesanan Anda sudah kami catat.",
+      "code": "Kode pesanan",
+      "statusLabel": "Status",
+      "packageLabel": "Paket",
+      "contactLabel": "Kontak",
+      "briefLabel": "Kebutuhan",
+      "next": "Tim kami akan menghubungi Anda dengan penawaran dan langkah pembayaran.",
+      "wa": "Kirim detail via WhatsApp",
+      "paymentSoon": "Pembayaran online (QRIS, transfer, kartu, crypto) akan tersedia di halaman ini.",
+      "notFound": "Pesanan tidak ditemukan",
+      "notFoundSub": "Periksa kembali tautan, atau buat pesanan baru.",
+      "newOrder": "Buat pesanan baru",
+      "s_pending_payment": "Menunggu pembayaran",
+      "s_paid": "Lunas",
+      "s_in_progress": "Dikerjakan",
+      "s_review": "Review",
+      "s_completed": "Selesai",
+      "s_cancelled": "Dibatalkan"
+    }
   }
 }

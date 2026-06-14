@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/sections/PageHeader";
 import { OrderForm } from "@/components/sections/order/OrderForm";
 import { tiers } from "@/data/pricing";
 import { pick } from "@/lib/i18n-text";
-import { site } from "@/data/site";
 
 export async function generateMetadata({
   params,
@@ -40,11 +39,7 @@ export default async function OrderPage({
       <PageHeader title={t("title")} subtitle={t("subtitle")} />
       <section className="bg-cream pb-20 pt-2 lg:pb-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <OrderForm
-            packages={packages}
-            whatsappNumber={site.whatsappNumber}
-            initialPackage={paket ?? ""}
-          />
+          <OrderForm packages={packages} initialPackage={paket ?? ""} />
         </div>
       </section>
     </>

@@ -296,7 +296,8 @@
     "budgetLabel": "Estimated budget (optional)",
     "next": "Next",
     "back": "Back",
-    "submit": "Send via WhatsApp",
+    "submit": "Place Order",
+    "submitError": "Couldn't create the order. Please try again.",
     "errRequired": "Required",
     "errEmail": "Invalid email",
     "errWhatsapp": "Invalid number",
@@ -309,6 +310,26 @@
     "waWhatsapp": "WhatsApp",
     "waCompany": "Company",
     "waBrief": "Needs",
-    "waBudget": "Budget"
+    "waBudget": "Budget",
+    "status": {
+      "thanks": "Thank you! Your order has been recorded.",
+      "code": "Order code",
+      "statusLabel": "Status",
+      "packageLabel": "Package",
+      "contactLabel": "Contact",
+      "briefLabel": "Needs",
+      "next": "Our team will reach out with a quote and payment steps.",
+      "wa": "Send details via WhatsApp",
+      "paymentSoon": "Online payment (QRIS, transfer, cards, crypto) will be available here soon.",
+      "notFound": "Order not found",
+      "notFoundSub": "Check the link, or create a new order.",
+      "newOrder": "Create a new order",
+      "s_pending_payment": "Awaiting payment",
+      "s_paid": "Paid",
+      "s_in_progress": "In progress",
+      "s_review": "In review",
+      "s_completed": "Completed",
+      "s_cancelled": "Cancelled"
+    }
   }
 }
