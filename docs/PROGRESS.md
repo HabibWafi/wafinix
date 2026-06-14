@@ -83,13 +83,10 @@
 - [x] Build SSG 8 demo lolos; lint 0 error (warning <img> disengaja); commit
 - Catatan: gambar = foto stok Unsplash via `<img>` (dipusatkan di demos.ts, mudah diganti aset user/nano-banana nanti)
 
-## ⬜ Tahap 9 — Supabase & Order
-- [ ] supabase/migrations: 5 tabel + constraint + RLS deny-all
-- [ ] .env.example; lib/supabase (server-only)
-- [ ] /order form multi-step (Zod + Turnstile + rate limit) → server action buat order (harga dari server)
-- [ ] /order/[code] halaman status
-- [ ] Security headers + CSP di next.config
-- [ ] Commit (butuh env Supabase dari user)
+## 🔄 Tahap 9 — Supabase & Order (9a selesai; 9b butuh kunci Supabase)
+- [x] **9a /order form multi-step** (react-hook-form + Zod, harga dibaca server dari pricing.ts, baca `?paket=`) → kirim ringkasan ke **WhatsApp** (interim, jalan tanpa backend). Hapus 404 /order. Commit.
+- [ ] **9b** (butuh env Supabase user): supabase/migrations 5 tabel + RLS deny-all; lib/supabase server-only; server action persist order (kode WFX-…); /order/[code] halaman status; Security headers + CSP + Turnstile + rate limit
+- Catatan: build sempat gagal karena `.next/dev/types/routes.d.ts` korup (dev server menulis bersamaan) — fix: hapus `.next` lalu build ulang.
 
 ## ⬜ Tahap 10 — Pembayaran
 - [ ] Midtrans Snap sandbox di /order/[code] + webhook (signature, nominal, idempotent)
