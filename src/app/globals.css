@@ -54,12 +54,17 @@ body {
   animation-play-state: paused;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-display), Georgia, serif;
-  color: var(--color-espresso);
+/* In @layer base so Tailwind text-color utilities (e.g. text-white, text-cream,
+   text-[var(--d-ink)]) override these defaults. Unlayered rules would otherwise
+   beat every utility and force all headings to espresso. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), Georgia, serif;
+    color: var(--color-espresso);
+  }
 }
 
 ::selection {
