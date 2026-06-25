@@ -6,7 +6,6 @@ import {
   Sprout,
   Truck,
   Coffee,
-  Droplets,
   Star,
   ShoppingBag,
   Plus,
@@ -36,6 +35,8 @@ const IMG = {
   pourover: "photo-1442512595331-e89e73853f31", // pour-over / Chemex
   cappuccino: "photo-1509042239860-f550ce710b93", // cappuccinos + plants
   farmer: "photo-1746623691157-c4c7a3bad0c4", // farmer harvesting cherries
+  sack: "photo-1690983325192-a4c13c2e331d", // burlap sack of beans + scoop
+  roasting: "photo-1511537190424-bbbab87ac5eb", // roasting drum
 };
 
 const navLinks = ["Beranda", "Shop", "Asal Biji", "Tentang Kami", "Blog"];
@@ -75,7 +76,7 @@ const products = [
     price: "Rp 105.000",
   },
   {
-    img: IMG.pourover,
+    img: IMG.sack,
     title: "Flores Bajawa",
     origin: "Nusa Tenggara Timur",
     roast: "Dark",
@@ -85,9 +86,9 @@ const products = [
 ];
 
 const journey = [
-  { icon: Sprout, step: "01", title: "Dipetik Pilihan", desc: "Ceri merah dipetik dengan tangan oleh petani mitra di dataran tinggi Nusantara." },
-  { icon: Flame, step: "02", title: "Disangrai Harian", desc: "Dipanggang dalam batch kecil setiap hari demi menjaga kesegaran dan karakter rasa." },
-  { icon: Droplets, step: "03", title: "Diseduh Sempurna", desc: "Sampai di cangkir Anda dengan profil rasa yang konsisten dan aroma yang utuh." },
+  { img: IMG.farmer, step: "01", title: "Dipetik Pilihan", desc: "Ceri merah dipetik dengan tangan oleh petani mitra di dataran tinggi Nusantara." },
+  { img: IMG.roasting, step: "02", title: "Disangrai Harian", desc: "Dipanggang dalam batch kecil setiap hari demi menjaga kesegaran dan karakter rasa." },
+  { img: IMG.pourover, step: "03", title: "Diseduh Sempurna", desc: "Sampai di cangkir Anda dengan profil rasa yang konsisten dan aroma yang utuh." },
 ];
 
 const stats = [
@@ -240,19 +241,22 @@ export function KopiDemo() {
             <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl" style={{ color: CREAM }}>Dari kebun ke cangkir</h2>
             <p className="mt-4 max-w-lg text-lg" style={{ color: "rgba(245,239,230,0.6)" }}>Tiga langkah sederhana yang kami jaga dengan teliti agar setiap seduhan terasa jujur.</p>
           </Rise>
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
             {journey.map((j, i) => (
               <Rise key={j.title} delay={i * 0.1}>
-                <div className="border-t pt-6" style={{ borderColor: "rgba(245,239,230,0.18)" }}>
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "rgba(164,104,47,0.2)" }}>
-                      <j.icon className="h-6 w-6" strokeWidth={1.25} style={{ color: "#d8b88a" }} />
-                    </span>
-                    <span className="font-display text-3xl font-semibold" style={{ color: "rgba(245,239,230,0.25)" }}>{j.step}</span>
+                <article className="flex h-full flex-col">
+                  <div className="relative">
+                    <Bezel shell="rgba(255,255,255,0.06)" ring="rgba(255,255,255,0.1)">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={ux(j.img, 800)} alt={j.title} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                    </Bezel>
+                    <span className="absolute right-4 top-4 font-display text-3xl font-semibold [text-shadow:0_2px_12px_rgba(0,0,0,0.5)]" style={{ color: "rgba(255,255,255,0.85)" }}>{j.step}</span>
                   </div>
-                  <h3 className="mt-5 font-display text-2xl font-semibold" style={{ color: CREAM }}>{j.title}</h3>
-                  <p className="mt-2 leading-relaxed" style={{ color: "rgba(245,239,230,0.6)" }}>{j.desc}</p>
-                </div>
+                  <div className="px-1 pt-5">
+                    <h3 className="font-display text-2xl font-semibold" style={{ color: CREAM }}>{j.title}</h3>
+                    <p className="mt-2 leading-relaxed" style={{ color: "rgba(245,239,230,0.6)" }}>{j.desc}</p>
+                  </div>
+                </article>
               </Rise>
             ))}
           </div>
