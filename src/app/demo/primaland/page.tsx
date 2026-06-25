@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { DemoPage } from "@/components/demo/DemoPage";
-import { demos } from "@/data/demos";
+import { PrimaLandDemo } from "@/components/demo/PrimaLandDemo";
 
 export const metadata: Metadata = {
   title: "PrimaLand — Demo oleh Wafinix",
@@ -8,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <DemoPage c={demos["primaland"]} />;
+  return <PrimaLandDemo />;
 }
