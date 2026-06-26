@@ -22,6 +22,10 @@ export default async function Home({
   return (
     <>
       <Hero />
+
+      <div className="bg-espresso">
+        <SectionDivider color="cream" variant="curve" />
+      </div>
       <ServicesPreview />
       <TechMarquee />
 

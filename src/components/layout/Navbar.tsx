@@ -4,16 +4,20 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { navLinks } from "@/data/site";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+
+  // The home hero is a dark stage — render the nav light while sitting over it.
+  const onDarkHero = pathname === "/" && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -39,7 +43,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
         <Link href="/" aria-label="Wafinix" className="shrink-0">
-          <Logo variant="horizontal" priority className="h-8 w-auto sm:h-9" />
+          <Logo variant="horizontal" onDark={onDarkHero} priority className="h-8 w-auto sm:h-9" />
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -47,7 +51,9 @@ export function Navbar() {
             <Link
               key={l.key}
               href={l.href}
-              className="text-sm font-medium text-cocoa transition-colors hover:text-terracotta"
+              className={`text-sm font-medium transition-colors ${
+                onDarkHero ? "text-cream/85 hover:text-amber" : "text-cocoa hover:text-terracotta"
+              }`}
             >
               {t(l.key)}
             </Link>
@@ -68,7 +74,9 @@ export function Navbar() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label={t("openMenu")}
-          className="rounded-full p-2 text-espresso transition-colors hover:bg-sand lg:hidden"
+          className={`rounded-full p-2 transition-colors lg:hidden ${
+            onDarkHero ? "text-cream hover:bg-white/10" : "text-espresso hover:bg-sand"
+          }`}
         >
           <Menu className="h-6 w-6" />
         </button>
