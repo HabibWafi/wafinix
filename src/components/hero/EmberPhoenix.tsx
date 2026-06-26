@@ -4,10 +4,13 @@ import { useEffect, useRef } from "react";
 import { useReducedMotion } from "motion/react";
 
 // Option A — "Ember Phoenix": a canvas particle field that samples the real
-// Wafinix mark (public/brand/mark.png) and reassembles it from glowing embers,
-// with rising sparks and a cursor that scatters the flames. Best on a dark stage.
+// Wafinix mark (public/brand/mark.png) and reassembles it from glowing embers.
+// On first load the embers burst out from the centre and swirl back into the
+// phoenix; afterwards they breathe and scatter away from the cursor.
 
 type P = { x: number; y: number; tx: number; ty: number; vx: number; vy: number; c: string; s: number; ph: number };
+
+const INTRO_MS = 2200;
 
 export function EmberPhoenix() {
   const reduce = useReducedMotion();
@@ -26,14 +29,16 @@ export function EmberPhoenix() {
     let H = 0;
     let dpr = 1;
     let particles: P[] = [];
+    let targets: { x: number; y: number; c: string }[] = [];
+    let spawned = false;
+    let introStart = 0;
     const pointer = { x: -9999, y: -9999, active: false };
     let t = 0;
 
     const img = new Image();
     img.src = "/brand/mark.png";
 
-    function buildTargets() {
-      // Sample the logo into a grid of target points (position + colour).
+    function computeTargets() {
       const mark = img;
       if (!mark.complete || !mark.naturalWidth) return;
       const aspect = mark.naturalWidth / mark.naturalHeight;
@@ -52,45 +57,70 @@ export function EmberPhoenix() {
       octx.drawImage(mark, 0, 0, sw, sh);
       const data = octx.getImageData(0, 0, sw, sh).data;
 
-      const mobile = W < 640;
-      const gap = mobile ? 6 : 4;
-      const targets: { x: number; y: number; c: string }[] = [];
+      const gap = W < 640 ? 6 : 4;
+      const pts: { x: number; y: number; c: string }[] = [];
       for (let y = 0; y < sh; y += gap) {
         for (let x = 0; x < sw; x += gap) {
           const i = (y * sw + x) * 4;
           if (data[i + 3] > 130) {
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
-            targets.push({ x: ox + x, y: oy + y, c: `rgba(${r},${g},${b},0.92)` });
+            pts.push({ x: ox + x, y: oy + y, c: `rgba(${data[i]},${data[i + 1]},${data[i + 2]},0.92)` });
           }
         }
       }
+      targets = pts;
+    }
 
-      particles = targets.map((tg) => ({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        tx: tg.x,
-        ty: tg.y,
-        vx: 0,
-        vy: 0,
-        c: tg.c,
-        s: Math.random() * 1.1 + 0.9,
-        ph: Math.random() * Math.PI * 2,
-      }));
+    function spawn() {
+      const cx = W / 2;
+      const cy = H / 2;
+      particles = targets.map((tg) => {
+        const ang = Math.random() * Math.PI * 2;
+        const spd = 4 + Math.random() * 11;
+        return {
+          x: cx + (Math.random() - 0.5) * 50,
+          y: cy + (Math.random() - 0.5) * 50,
+          tx: tg.x,
+          ty: tg.y,
+          vx: Math.cos(ang) * spd,
+          vy: Math.sin(ang) * spd,
+          c: tg.c,
+          s: Math.random() * 1.1 + 0.9,
+          ph: Math.random() * Math.PI * 2,
+        };
+      });
+      introStart = performance.now();
+      spawned = true;
+    }
+
+    function remap() {
+      // Resize without re-bursting: keep positions, retarget to new points.
+      if (particles.length === targets.length) {
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].tx = targets[i].x;
+          particles[i].ty = targets[i].y;
+          particles[i].c = targets[i].c;
+        }
+      } else {
+        spawn();
+      }
     }
 
     function resize() {
       const rect = wrap!.getBoundingClientRect();
+      const nw = Math.round(rect.width);
+      const nh = Math.round(rect.height);
+      if (nw === W && nh === H) return; // guard against ResizeObserver feedback loops
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = rect.width;
-      H = rect.height;
+      W = nw;
+      H = nh;
       canvas!.width = W * dpr;
       canvas!.height = H * dpr;
       canvas!.style.width = `${W}px`;
       canvas!.style.height = `${H}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      buildTargets();
+      computeTargets();
+      if (!spawned) spawn();
+      else remap();
     }
 
     function drawStatic() {
@@ -104,18 +134,33 @@ export function EmberPhoenix() {
 
     function frame() {
       t += 0.016;
+      const intro = Math.min(1, (performance.now() - introStart) / INTRO_MS);
+      const pull = 0.006 + Math.pow(intro, 1.6) * 0.02; // weak during burst → firm as it settles
+      const cx = W / 2;
+      const cy = H / 2;
+      const sizeBoost = 1 + (1 - intro) * 0.7;
+
       ctx!.clearRect(0, 0, W, H);
       ctx!.globalCompositeOperation = "lighter";
 
       for (const p of particles) {
-        // gentle idle drift around the target
-        const ax = p.tx + Math.sin(t * 0.8 + p.ph) * 2.2;
-        const ay = p.ty + Math.cos(t * 0.7 + p.ph) * 2.2;
-        p.vx += (ax - p.x) * 0.022;
-        p.vy += (ay - p.y) * 0.022;
+        const wobble = intro * 2.2;
+        const ax = p.tx + Math.sin(t * 0.8 + p.ph) * wobble;
+        const ay = p.ty + Math.cos(t * 0.7 + p.ph) * wobble;
+        p.vx += (ax - p.x) * pull;
+        p.vy += (ay - p.y) * pull;
 
-        // pointer scatters nearby embers
-        if (pointer.active) {
+        // vortex swirl while the embers gather
+        if (intro < 1) {
+          const dx = p.x - cx;
+          const dy = p.y - cy;
+          const sw = (1 - intro) * 0.006;
+          p.vx += -dy * sw;
+          p.vy += dx * sw;
+        }
+
+        // pointer scatters nearby embers (after intro)
+        if (pointer.active && intro > 0.6) {
           const dx = p.x - pointer.x;
           const dy = p.y - pointer.y;
           const d2 = dx * dx + dy * dy;
@@ -134,7 +179,7 @@ export function EmberPhoenix() {
 
         ctx!.fillStyle = p.c;
         ctx!.beginPath();
-        ctx!.arc(p.x, p.y, p.s, 0, Math.PI * 2);
+        ctx!.arc(p.x, p.y, p.s * sizeBoost, 0, Math.PI * 2);
         ctx!.fill();
       }
 
@@ -143,7 +188,7 @@ export function EmberPhoenix() {
       for (let i = 0; i < sparkCount; i++) {
         const sx = (Math.sin(i * 12.9 + t * 0.6) * 0.5 + 0.5) * W;
         const sy = H - ((t * 22 + i * 90) % (H + 60)) + 30;
-        const a = Math.max(0, 1 - (H - sy) / H) * 0.5;
+        const a = Math.max(0, 1 - (H - sy) / H) * 0.5 * intro;
         ctx!.fillStyle = `rgba(227,165,71,${a})`;
         ctx!.beginPath();
         ctx!.arc(sx, sy, 1.4, 0, Math.PI * 2);
@@ -195,7 +240,7 @@ export function EmberPhoenix() {
     <div ref={wrapRef} className="relative mx-auto aspect-square w-full max-w-[480px]">
       {/* warm core glow behind the embers */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta/25 blur-3xl" aria-hidden />
-      <canvas ref={canvasRef} className="relative h-full w-full" />
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
     </div>
   );
 }
