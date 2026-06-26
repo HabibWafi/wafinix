@@ -7,6 +7,10 @@ import { useReducedMotion } from "motion/react";
 // Wafinix mark (public/brand/mark.png) and reassembles it from glowing embers.
 // On first load the embers burst out from the centre and swirl back into the
 // phoenix; afterwards they breathe and scatter away from the cursor.
+//
+// Init is self-healing: the animation loop keeps trying to build itself every
+// frame until BOTH the image and the layout are ready, so it never depends on
+// the order in which onload / ResizeObserver / hydration happen.
 
 type P = { x: number; y: number; tx: number; ty: number; vx: number; vy: number; c: string; s: number; ph: number };
 
@@ -31,17 +35,16 @@ export function EmberPhoenix() {
     let particles: P[] = [];
     let targets: { x: number; y: number; c: string }[] = [];
     let spawned = false;
+    let imgReady = false;
     let introStart = 0;
     const pointer = { x: -9999, y: -9999, active: false };
     let t = 0;
 
     const img = new Image();
-    img.src = "/brand/mark.png";
 
     function computeTargets() {
-      const mark = img;
-      if (!mark.complete || !mark.naturalWidth) return;
-      const aspect = mark.naturalWidth / mark.naturalHeight;
+      if (!imgReady || W === 0) return;
+      const aspect = img.naturalWidth / img.naturalHeight;
       const boxW = Math.min(W * 0.78, H * 0.78 * aspect);
       const boxH = boxW / aspect;
       const ox = (W - boxW) / 2;
@@ -54,7 +57,7 @@ export function EmberPhoenix() {
       off.height = sh;
       const octx = off.getContext("2d");
       if (!octx) return;
-      octx.drawImage(mark, 0, 0, sw, sh);
+      octx.drawImage(img, 0, 0, sw, sh);
       const data = octx.getImageData(0, 0, sw, sh).data;
 
       const gap = W < 640 ? 6 : 4;
@@ -92,8 +95,15 @@ export function EmberPhoenix() {
       spawned = true;
     }
 
-    function remap() {
-      // Resize without re-bursting: keep positions, retarget to new points.
+    function maybeInit() {
+      if (spawned || !imgReady || W === 0) return;
+      computeTargets();
+      if (targets.length) spawn();
+    }
+
+    function refit() {
+      // Re-fit an existing formation to a new size without re-bursting.
+      computeTargets();
       if (particles.length === targets.length) {
         for (let i = 0; i < particles.length; i++) {
           particles[i].tx = targets[i].x;
@@ -105,11 +115,11 @@ export function EmberPhoenix() {
       }
     }
 
-    function resize() {
+    function sizeCanvas() {
       const rect = wrap!.getBoundingClientRect();
       const nw = Math.round(rect.width);
       const nh = Math.round(rect.height);
-      if (nw === W && nh === H) return; // guard against ResizeObserver feedback loops
+      if (nw === W && nh === H) return;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = nw;
       H = nh;
@@ -118,14 +128,14 @@ export function EmberPhoenix() {
       canvas!.style.width = `${W}px`;
       canvas!.style.height = `${H}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      computeTargets();
-      if (!spawned) spawn();
-      else remap();
+      if (spawned) refit();
+      else maybeInit();
+      if (reduce) drawStatic();
     }
 
     function drawStatic() {
+      if (!imgReady || W === 0) return;
       ctx!.clearRect(0, 0, W, H);
-      if (!img.complete || !img.naturalWidth) return;
       const aspect = img.naturalWidth / img.naturalHeight;
       const boxW = Math.min(W * 0.7, H * 0.7 * aspect);
       const boxH = boxW / aspect;
@@ -133,9 +143,17 @@ export function EmberPhoenix() {
     }
 
     function frame() {
+      if (!spawned) {
+        maybeInit();
+        if (!spawned) {
+          raf = requestAnimationFrame(frame);
+          return;
+        }
+      }
+
       t += 0.016;
       const intro = Math.min(1, (performance.now() - introStart) / INTRO_MS);
-      const pull = 0.006 + Math.pow(intro, 1.6) * 0.02; // weak during burst → firm as it settles
+      const pull = 0.006 + Math.pow(intro, 1.6) * 0.02;
       const cx = W / 2;
       const cy = H / 2;
       const sizeBoost = 1 + (1 - intro) * 0.7;
@@ -150,7 +168,6 @@ export function EmberPhoenix() {
         p.vx += (ax - p.x) * pull;
         p.vy += (ay - p.y) * pull;
 
-        // vortex swirl while the embers gather
         if (intro < 1) {
           const dx = p.x - cx;
           const dy = p.y - cy;
@@ -159,7 +176,6 @@ export function EmberPhoenix() {
           p.vy += dx * sw;
         }
 
-        // pointer scatters nearby embers (after intro)
         if (pointer.active && intro > 0.6) {
           const dx = p.x - pointer.x;
           const dy = p.y - pointer.y;
@@ -183,7 +199,6 @@ export function EmberPhoenix() {
         ctx!.fill();
       }
 
-      // rising sparks
       const sparkCount = W < 640 ? 14 : 26;
       for (let i = 0; i < sparkCount; i++) {
         const sx = (Math.sin(i * 12.9 + t * 0.6) * 0.5 + 0.5) * W;
@@ -211,22 +226,25 @@ export function EmberPhoenix() {
       pointer.y = -9999;
     }
 
-    const ro = new ResizeObserver(() => resize());
+    const ro = new ResizeObserver(() => sizeCanvas());
     ro.observe(wrap);
 
-    const start = () => {
-      resize();
-      if (reduce) {
-        drawStatic();
-      } else {
-        wrap.addEventListener("pointermove", onPointer);
-        wrap.addEventListener("pointerleave", onLeave);
-        raf = requestAnimationFrame(frame);
-      }
+    img.onload = () => {
+      imgReady = true;
+      if (reduce) drawStatic();
     };
+    img.src = "/brand/mark.png";
+    if (img.complete && img.naturalWidth) imgReady = true;
 
-    if (img.complete) start();
-    else img.onload = start;
+    sizeCanvas();
+
+    if (reduce) {
+      drawStatic();
+    } else {
+      wrap.addEventListener("pointermove", onPointer);
+      wrap.addEventListener("pointerleave", onLeave);
+      raf = requestAnimationFrame(frame);
+    }
 
     return () => {
       cancelAnimationFrame(raf);
