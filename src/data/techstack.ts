@@ -72,3 +72,50 @@ export const techMarquee: string[] = [
   "Vue.js",
   "WordPress",
 ];
+
+// Brand logos for the home tech section + hero. `slug` is the simple-icons slug
+// (rendered via https://cdn.simpleicons.org/<slug>). Keep only slugs that exist.
+export interface TechLogo {
+  name: string;
+  slug: string;
+}
+
+export const techLogos: TechLogo[] = [
+  { name: "TypeScript", slug: "typescript" },
+  { name: "React", slug: "react" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "Vue.js", slug: "vuedotjs" },
+  { name: "Tailwind CSS", slug: "tailwindcss" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "Laravel", slug: "laravel" },
+  { name: "PHP", slug: "php" },
+  { name: "Flutter", slug: "flutter" },
+  { name: "Dart", slug: "dart" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "Redis", slug: "redis" },
+  { name: "Supabase", slug: "supabase" },
+  { name: "Three.js", slug: "threedotjs" },
+  { name: "GSAP", slug: "greensock" },
+  { name: "Framer Motion", slug: "framer" },
+  { name: "Docker", slug: "docker" },
+  { name: "Figma", slug: "figma" },
+  { name: "WordPress", slug: "wordpress" },
+  { name: "Cloudflare", slug: "cloudflare" },
+];
+
+// Iconic few to float around the hero phoenix.
+export const heroTechLogos: TechLogo[] = [
+  { name: "React", slug: "react" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "Laravel", slug: "laravel" },
+  { name: "Flutter", slug: "flutter" },
+  { name: "Supabase", slug: "supabase" },
+  { name: "TypeScript", slug: "typescript" },
+];
+
+// Logos are bundled locally in public/tech (downloaded from simple-icons) so
+// there is no runtime CDN dependency. `white` returns the cream/white variant.
+export const techIconUrl = (slug: string, white = false) =>
+  `/tech/${slug}${white ? "-white" : ""}.svg`;

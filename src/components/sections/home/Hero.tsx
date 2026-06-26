@@ -14,6 +14,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { HandDrawn } from "@/components/decor/HandDrawn";
 import { EmberPhoenix } from "@/components/hero/EmberPhoenix";
+import { HeroTechBadges } from "@/components/hero/HeroTechBadges";
 
 export function Hero() {
   const t = useTranslations("home.hero");
@@ -94,6 +95,7 @@ export function Hero() {
               <EmberPhoenix />
             </motion.div>
           )}
+          <HeroTechBadges />
         </div>
       </div>
 
